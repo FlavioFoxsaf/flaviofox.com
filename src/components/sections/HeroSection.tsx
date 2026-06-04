@@ -1,0 +1,95 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Dictionary } from '@/i18n/dictionaries';
+import { ChevronDown } from 'lucide-react';
+
+interface HeroSectionProps {
+  dict: Dictionary;
+}
+
+export function HeroSection({ dict }: HeroSectionProps) {
+  const scrollToAbout = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  return (
+    <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-fox.mp4" type="video/mp4" />
+        </video>
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/60 via-[#0a0a0c]/80 to-[#0a0a0c] pointer-events-none" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white">
+            Flavio Fox
+          </h1>
+          <h2 className="text-xl md:text-3xl font-medium text-transparent text-gradient mb-8 max-w-3xl mx-auto">
+            {dict.hero.title}
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
+            {dict.hero.subtitle}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors w-full sm:w-auto"
+            >
+              {dict.hero.primaryCta}
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 glass text-white font-semibold rounded-full hover:bg-white/10 transition-colors w-full sm:w-auto"
+            >
+              {dict.hero.secondaryCta}
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
+        onClick={scrollToAbout}
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-gray-400 hover:text-white transition-colors"
+        >
+          <ChevronDown className="w-6 h-6" />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
