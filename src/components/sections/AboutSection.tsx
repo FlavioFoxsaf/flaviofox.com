@@ -33,7 +33,7 @@ export function AboutSection({ dict }: AboutSectionProps) {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8">
             {dict.about.title}
           </h2>
-          <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+          <div className="space-y-4 text-gray-300 text-lg leading-relaxed whitespace-pre-line">
             <p>{dict.about.contentShort}</p>
           </div>
           

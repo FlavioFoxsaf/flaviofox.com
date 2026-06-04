@@ -46,12 +46,14 @@ export function HeroSection({ dict }: HeroSectionProps) {
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white">
             Flavio Fox
           </h1>
-          <h2 className="text-xl md:text-3xl font-medium text-transparent text-gradient mb-8 max-w-3xl mx-auto">
-            {dict.hero.title}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
-            {dict.hero.subtitle}
-          </p>
+          <div className="flex flex-col gap-2 mb-12">
+            <h2 className="text-xl md:text-2xl font-medium text-transparent text-gradient max-w-3xl mx-auto">
+              {dict.hero.title}
+            </h2>
+            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+              {dict.hero.subtitle}
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button

@@ -18,18 +18,19 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
     containScroll: 'trimSnaps'
   });
   
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAllModalOpen, setIsAllModalOpen] = useState(false);
+  const [selectedCert, setSelectedCert] = useState<number | null>(null);
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   const certifications = [
-    { id: 1, name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023', icon: '☁️' },
-    { id: 2, name: 'Google Cloud Professional Developer', issuer: 'Google Cloud', date: '2022', icon: '🌐' },
-    { id: 3, name: 'Meta Advanced React', issuer: 'Meta', date: '2021', icon: '⚛️' },
-    { id: 4, name: 'Certified Kubernetes Administrator', issuer: 'CNCF', date: '2023', icon: '🚢' },
-    { id: 5, name: 'MongoDB Certified Developer', issuer: 'MongoDB', date: '2020', icon: '🍃' },
-    { id: 6, name: 'TypeScript Deep Dive', issuer: 'Frontend Masters', date: '2021', icon: '📘' },
+    { id: 1, name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023', icon: '☁️', desc: 'Validates overall understanding of the AWS Cloud platform, covering basic cloud concepts and security. Emphasizes best practices for architecting distributed systems.' },
+    { id: 2, name: 'Google Cloud Professional Developer', issuer: 'Google Cloud', date: '2022', icon: '🌐', desc: 'Demonstrates proficiency in designing, building, testing, and deploying highly scalable applications on Google Cloud Platform.' },
+    { id: 3, name: 'Meta Advanced React', issuer: 'Meta', date: '2021', icon: '⚛️', desc: 'Focuses on advanced React concepts including custom hooks, performance optimization, and global state management.' },
+    { id: 4, name: 'Certified Kubernetes Administrator', issuer: 'CNCF', date: '2023', icon: '🚢', desc: 'Certifies the knowledge, skills and ability to perform the responsibilities of Kubernetes administrators.' },
+    { id: 5, name: 'MongoDB Certified Developer', issuer: 'MongoDB', date: '2020', icon: '🍃', desc: 'Validates expertise in building applications using MongoDB, including data modeling and query optimization.' },
+    { id: 6, name: 'TypeScript Deep Dive', issuer: 'Frontend Masters', date: '2021', icon: '📘', desc: 'Comprehensive certification covering advanced type system features, generics, and compiler options in TypeScript.' },
   ];
 
   return (
@@ -58,7 +59,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
             </button>
           </div>
           <button 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsAllModalOpen(true)}
             className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 transition-colors text-sm"
           >
             {dict.certifications.viewAll}
@@ -73,7 +74,10 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
               key={cert.id} 
               className="flex-[0_0_80%] md:flex-[0_0_40%] lg:flex-[0_0_28%] min-w-0"
             >
-              <div className="glass p-6 rounded-2xl h-full border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden">
+              <div 
+                className="glass p-6 rounded-2xl h-full border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden cursor-pointer"
+                onClick={() => setSelectedCert(cert.id)}
+              >
                 <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl group-hover:scale-110 transition-transform duration-500">
                   {cert.icon}
                 </div>
@@ -93,10 +97,17 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
         </div>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={dict.certifications.title}>
+      <Modal isOpen={isAllModalOpen} onClose={() => setIsAllModalOpen(false)} title={dict.certifications.title}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           {certifications.map((cert) => (
-            <div key={cert.id} className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4">
+            <div 
+              key={cert.id} 
+              onClick={() => {
+                setIsAllModalOpen(false);
+                setTimeout(() => setSelectedCert(cert.id), 300); // Wait for modal close animation
+              }}
+              className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4 cursor-pointer hover:bg-white/10 transition-colors"
+            >
               <div className="text-3xl">{cert.icon}</div>
               <div>
                 <h4 className="text-white font-bold text-sm">{cert.name}</h4>
@@ -106,6 +117,36 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
             </div>
           ))}
         </div>
+      </Modal>
+
+      <Modal isOpen={selectedCert !== null} onClose={() => setSelectedCert(null)}>
+        {selectedCert !== null && (() => {
+          const cert = certifications.find(c => c.id === selectedCert);
+          if (!cert) return null;
+          return (
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="text-5xl">{cert.icon}</div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white leading-tight">{cert.name}</h3>
+                  <div className="text-green-400 font-medium mt-1">{cert.issuer}</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2 text-sm text-gray-400 mb-8 pb-6 border-b border-white/10">
+                <Award className="w-4 h-4" />
+                Issued: {cert.date}
+              </div>
+
+              <div>
+                <h4 className="text-white font-medium mb-3">About this Certification</h4>
+                <p className="text-gray-300 leading-relaxed">
+                  {cert.desc}
+                </p>
+              </div>
+            </div>
+          );
+        })()}
       </Modal>
     </Section>
   );

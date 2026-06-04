@@ -21,7 +21,7 @@ export const dictionaries = {
     },
     about: {
       title: 'About Me',
-      contentShort: 'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Computer Engineering at SENAI CIMATEC and Systems Analysis and Development, combining academic structure with my practical background in management and communication. My career path is marked by solid entrepreneurial experience...',
+      contentShort: 'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Computer Engineering at SENAI CIMATEC and Systems Analysis and Development, combining academic structure with my practical background in management and communication.\n\nMy career path is marked by solid entrepreneurial experience...',
       contentFull: [
         'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Computer Engineering at SENAI CIMATEC and Systems Analysis and Development, combining academic structure with my practical background in management and communication.',
         'My career path is marked by solid entrepreneurial experience. As a former partner at a digital marketing agency, I was responsible for keeping the gears turning: from team leadership to conflict mediation to ensure high-quality results. This experience provided the maturity needed to understand business pain points and the discipline to manage complex workflows.',
@@ -165,7 +165,7 @@ export const dictionaries = {
     },
     about: {
       title: 'Sobre Mim',
-      contentShort: 'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Engenharia da Computação no SENAI CIMATEC e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação. Minha trajetória é marcada por uma sólida experiência empreendedora...',
+      contentShort: 'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Engenharia da Computação no SENAI CIMATEC e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.\n\nMinha trajetória é marcada por uma sólida experiência empreendedora...',
       contentFull: [
         'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Engenharia da Computação no SENAI CIMATEC e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.',
         'Minha trajetória é marcada por uma sólida experiência empreendedora. Como ex-sócio de uma agência de marketing digital, assumi a responsabilidade de fazer a engrenagem rodar: da liderança de equipes à mediação de conflitos para garantir resultados. Essa vivência me trouxe a maturidade necessária para entender as dores de um negócio e a disciplina para gerir fluxos de trabalho complexos.',

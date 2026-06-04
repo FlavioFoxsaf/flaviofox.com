@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
-import { Send, Mail, MapPin } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 
 interface ContactSectionProps {
   dict: Dictionary;
@@ -28,16 +28,37 @@ export function ContactSection({ dict }: ContactSectionProps) {
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Email</div>
-                <div className="text-white">hello@flaviofox.com</div>
+                <div className="text-white">flaviofoxsaf@gmail.com</div>
               </div>
             </div>
+            
+            <div className="flex items-center gap-4 text-gray-300">
+              <div className="p-4 rounded-full glass">
+                <Phone className="w-6 h-6 text-green-500" />
+              </div>
+              <div>
+                <div className="text-sm text-gray-500 font-medium mb-1">Phone</div>
+                <div className="text-white">(71) 98710-7553</div>
+              </div>
+            </div>
+
+            <a href="https://wa.me/5571987107553" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+              <div className="p-4 rounded-full glass group-hover:bg-white/10 transition-colors">
+                <MessageCircle className="w-6 h-6 text-green-400" />
+              </div>
+              <div>
+                <div className="text-sm text-gray-500 font-medium mb-1 group-hover:text-gray-400 transition-colors">WhatsApp</div>
+                <div className="text-white">Start a conversation</div>
+              </div>
+            </a>
+
             <div className="flex items-center gap-4 text-gray-300">
               <div className="p-4 rounded-full glass">
                 <MapPin className="w-6 h-6 text-purple-500" />
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Location</div>
-                <div className="text-white">Remote / Worldwide</div>
+                <div className="text-white">Salvador, BA</div>
               </div>
             </div>
           </div>
