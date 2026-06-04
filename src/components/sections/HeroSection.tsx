@@ -47,7 +47,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
             Flavio Fox
           </h1>
           <div className="flex flex-col gap-2 mb-12">
-            <h2 className="text-lg md:text-xl font-medium text-transparent text-gradient max-w-3xl mx-auto">
+            <h2 className="text-lg md:text-xl font-medium text-gray-200 max-w-3xl mx-auto">
               {dict.hero.title}
             </h2>
             <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
@@ -60,7 +60,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors w-full sm:w-auto"
+              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
               {dict.hero.primaryCta}
             </motion.button>
@@ -68,7 +68,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 glass text-white font-semibold rounded-full hover:bg-white/10 transition-colors w-full sm:w-auto"
+              className="px-8 py-4 glass text-white font-semibold rounded-full border border-white/10 hover:bg-orange-500/10 hover:border-orange-500/50 hover:text-orange-50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 w-full sm:w-auto"
             >
               {dict.hero.secondaryCta}
             </motion.button>
@@ -87,7 +87,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-gray-400 hover:text-white transition-colors"
+          className="p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-gray-400 hover:bg-orange-500/10 hover:border-orange-500/50 hover:text-orange-50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300"
         >
           <ChevronDown className="w-6 h-6" />
         </motion.div>

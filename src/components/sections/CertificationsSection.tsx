@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
-import { ExternalLink, Award, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Award, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 
 interface CertificationsSectionProps {
   dict: Dictionary;
@@ -24,14 +24,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
-  const certifications = [
-    { id: 1, name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023', icon: '☁️', desc: 'Validates overall understanding of the AWS Cloud platform, covering basic cloud concepts and security. Emphasizes best practices for architecting distributed systems.' },
-    { id: 2, name: 'Google Cloud Professional Developer', issuer: 'Google Cloud', date: '2022', icon: '🌐', desc: 'Demonstrates proficiency in designing, building, testing, and deploying highly scalable applications on Google Cloud Platform.' },
-    { id: 3, name: 'Meta Advanced React', issuer: 'Meta', date: '2021', icon: '⚛️', desc: 'Focuses on advanced React concepts including custom hooks, performance optimization, and global state management.' },
-    { id: 4, name: 'Certified Kubernetes Administrator', issuer: 'CNCF', date: '2023', icon: '🚢', desc: 'Certifies the knowledge, skills and ability to perform the responsibilities of Kubernetes administrators.' },
-    { id: 5, name: 'MongoDB Certified Developer', issuer: 'MongoDB', date: '2020', icon: '🍃', desc: 'Validates expertise in building applications using MongoDB, including data modeling and query optimization.' },
-    { id: 6, name: 'TypeScript Deep Dive', issuer: 'Frontend Masters', date: '2021', icon: '📘', desc: 'Comprehensive certification covering advanced type system features, generics, and compiler options in TypeScript.' },
-  ];
+  const certifications = dict.certifications.items || [];
 
   return (
     <Section id="certifications" className="overflow-hidden">
@@ -85,7 +78,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
                 <h3 className="text-lg font-bold text-white mb-2 leading-tight">
                   {cert.name}
                 </h3>
-                <div className="text-gray-400 text-sm mb-4">
+                <div className="text-green-400 font-medium text-sm mb-4">
                   {cert.issuer}
                 </div>
                 <div className="text-xs text-gray-500 font-mono mt-auto">
@@ -133,17 +126,68 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
                 </div>
               </div>
               
-              <div className="flex items-center gap-2 text-sm text-gray-400 mb-8 pb-6 border-b border-white/10">
-                <Award className="w-4 h-4" />
-                Issued: {cert.date}
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-6 pb-6 border-b border-white/10">
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4" />
+                  {dict.certifications.issued}: {cert.date}
+                </div>
+                {cert.hours && (
+                  <>
+                    <span className="hidden sm:inline">•</span>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4" />
+                      {dict.certifications.hours}: {cert.hours}
+                    </div>
+                  </>
+                )}
               </div>
 
+              {cert.image && (
+                <div className="mb-6 relative w-full rounded-xl overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center p-4">
+                  <img src={cert.image} alt={cert.name} className="object-contain w-full h-auto rounded-lg shadow-lg" />
+                </div>
+              )}
+
               <div>
-                <h4 className="text-white font-medium mb-3">About this Certification</h4>
+                <h4 className="text-white font-medium mb-3">{dict.certifications.aboutCert}</h4>
                 <p className="text-gray-300 leading-relaxed">
                   {cert.desc}
                 </p>
               </div>
+
+              {cert.url ? (
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-green-500/20 text-white font-medium rounded-lg transition-colors w-full sm:w-auto hover:text-green-300 border border-transparent hover:border-green-500/30"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {dict.certifications.viewCertificate}
+                  </a>
+                </div>
+              ) : (
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <button
+                    onClick={() => {
+                      const toast = document.createElement('div');
+                      toast.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 z-[150] px-6 py-3 rounded-full glass-strong border border-white/10 text-white font-medium shadow-lg flex items-center gap-2 text-sm text-center w-[90%] max-w-sm';
+                      toast.innerText = dict.certifications.noLinkMessage || 'Link indisponível.';
+                      document.body.appendChild(toast);
+                      setTimeout(() => {
+                        toast.style.opacity = '0';
+                        toast.style.transition = 'opacity 0.3s ease';
+                        setTimeout(() => toast.remove(), 300);
+                      }, 3000);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 text-gray-400 font-medium rounded-lg w-full sm:w-auto cursor-help hover:bg-white/10 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4 opacity-50" />
+                    {dict.certifications.viewCertificate}
+                  </button>
+                </div>
+              )}
             </div>
           );
         })()}
