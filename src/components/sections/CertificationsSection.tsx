@@ -82,7 +82,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
                   {cert.issuer}
                 </div>
                 <div className="text-xs text-gray-500 font-mono mt-auto">
-                  Issued: {cert.date}
+                  {dict.certifications.issued}: {cert.date}
                 </div>
               </div>
             </div>
