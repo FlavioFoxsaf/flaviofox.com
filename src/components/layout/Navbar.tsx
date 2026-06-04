@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Dictionary, Language } from '@/i18n/dictionaries';
 import { cn } from '@/lib/utils';
@@ -14,7 +14,6 @@ interface NavbarProps {
 }
 
 export function Navbar({ dict, lang }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   
@@ -34,8 +33,6 @@ export function Navbar({ dict, lang }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      
       // Update active section based on scroll position
       const sections = navLinks.map(link => document.getElementById(link.id));
       const scrollPosition = window.scrollY + 100;
@@ -72,15 +69,48 @@ export function Navbar({ dict, lang }: NavbarProps) {
     }
   };
 
+  const { scrollY } = useScroll();
+
+  const backgroundColor = useTransform(
+    scrollY,
+    [0, 50, 300],
+    ['rgba(5, 5, 5, 0)', 'rgba(5, 5, 5, 0.4)', 'rgba(5, 5, 5, 0.85)']
+  );
+
+  const backdropFilter = useTransform(
+    scrollY,
+    [0, 50, 300],
+    ['blur(0px)', 'blur(6px)', 'blur(16px)']
+  );
+
+  const borderBottomColor = useTransform(
+    scrollY,
+    [0, 50, 300],
+    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.02)', 'rgba(255, 255, 255, 0.05)']
+  );
+
+  const paddingY = useTransform(
+    scrollY,
+    [0, 50],
+    ['1.5rem', '1rem']
+  );
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'glass-strong py-4' : 'bg-transparent py-6'
-      )}
+      style={{
+        backgroundColor,
+        backdropFilter,
+        WebkitBackdropFilter: backdropFilter,
+        borderBottomColor,
+        borderBottomWidth: '1px',
+        borderBottomStyle: 'solid',
+        paddingTop: paddingY,
+        paddingBottom: paddingY
+      }}
+      className="fixed top-0 left-0 right-0 z-50"
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         <div 
