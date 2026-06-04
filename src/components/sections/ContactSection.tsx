@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
-import { Send, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface ContactSectionProps {
   dict: Dictionary;
@@ -17,8 +18,8 @@ export function ContactSection({ dict }: ContactSectionProps) {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
             {dict.contact.title}
           </h2>
-          <p className="text-gray-400 text-lg mb-12 max-w-md leading-relaxed">
-            I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          <p className="text-gray-400 text-lg mb-12 max-w-md leading-relaxed whitespace-pre-line">
+            {dict.contact.subtitle}
           </p>
           
           <div className="space-y-6">
@@ -34,7 +35,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
             
             <div className="flex items-center gap-4 text-gray-300">
               <div className="p-4 rounded-full glass">
-                <Phone className="w-6 h-6 text-green-500" />
+                <Phone className="w-6 h-6 text-purple-500" />
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Phone</div>
@@ -44,7 +45,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
 
             <a href="https://wa.me/5571987107553" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
               <div className="p-4 rounded-full glass group-hover:bg-white/10 transition-colors">
-                <MessageCircle className="w-6 h-6 text-green-400" />
+                <FaWhatsapp className="w-6 h-6 text-green-400" />
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1 group-hover:text-gray-400 transition-colors">WhatsApp</div>
@@ -54,7 +55,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
 
             <div className="flex items-center gap-4 text-gray-300">
               <div className="p-4 rounded-full glass">
-                <MapPin className="w-6 h-6 text-purple-500" />
+                <MapPin className="w-6 h-6 text-red-500" />
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Location</div>

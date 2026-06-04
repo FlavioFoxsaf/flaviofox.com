@@ -66,9 +66,9 @@ export function Navbar({ dict, lang }: NavbarProps) {
 
   const toggleLanguage = () => {
     if (lang === 'en') {
-      router.push('/pt');
+      router.push('/pt', { scroll: false });
     } else {
-      router.push('/');
+      router.push('/', { scroll: false });
     }
   };
 

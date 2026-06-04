@@ -134,11 +134,13 @@ export const dictionaries = {
     },
     contact: {
       title: 'Get In Touch',
+      subtitle: 'I\'m always open to new connections, projects, and opportunities.\nGet in touch and let\'s build something relevant together.',
       nameLabel: 'Name',
       emailLabel: 'Email',
       subjectLabel: 'Subject',
       messageLabel: 'Message',
       submitBtn: 'Send Message',
+      emailCopied: 'Email copied!',
     },
     footer: {
       copyright: '© 2026 Flavio Fox. All rights reserved.',
@@ -278,11 +280,13 @@ export const dictionaries = {
     },
     contact: {
       title: 'Entre em Contato',
+      subtitle: 'Estou sempre aberto a novas conexões, projetos e oportunidades.\nEntre em contato e vamos construir algo relevante juntos.',
       nameLabel: 'Nome',
       emailLabel: 'E-mail',
       subjectLabel: 'Assunto',
       messageLabel: 'Mensagem',
       submitBtn: 'Enviar Mensagem',
+      emailCopied: 'Email copiado!',
     },
     footer: {
       copyright: '© 2026 Flavio Fox. Todos os direitos reservados.',
