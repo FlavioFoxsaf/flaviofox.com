@@ -14,39 +14,7 @@ interface ExperienceSectionProps {
 export function ExperienceSection({ dict }: ExperienceSectionProps) {
   const [selectedExp, setSelectedExp] = useState<number | null>(null);
 
-  // Placeholder experiences
-  const experiences = [
-    {
-      id: 1,
-      role: 'Senior Software Engineer',
-      company: 'Tech Innovators Inc.',
-      period: '2023 - Present',
-      location: 'Remote',
-      shortDesc: 'Leading the development of highly scalable web applications using Next.js and Node.js. Managing a team of 4 developers.',
-      fullDesc: 'As a Senior Software Engineer, I am responsible for architecture decisions, code reviews, and leading the frontend development team. Key achievements include improving application performance by 40% and successfully migrating a legacy monolithic application to a microservices architecture.',
-      skills: ['React', 'Next.js', 'TypeScript', 'Node.js', 'AWS']
-    },
-    {
-      id: 2,
-      role: 'Full Stack Developer',
-      company: 'Digital Solutions Agency',
-      period: '2020 - 2023',
-      location: 'New York, NY',
-      shortDesc: 'Developed and maintained various client projects, from e-commerce platforms to custom dashboards.',
-      fullDesc: 'Worked on multiple high-profile client projects, delivering robust full-stack solutions. Collaborated closely with designers and product managers to ensure high-quality user experiences. Implemented automated testing that reduced production bugs by 30%.',
-      skills: ['Vue.js', 'Laravel', 'MySQL', 'Tailwind CSS']
-    },
-    {
-      id: 3,
-      role: 'Frontend Developer',
-      company: 'Creative Web Studio',
-      period: '2018 - 2020',
-      location: 'London, UK',
-      shortDesc: 'Created pixel-perfect, responsive interfaces for marketing websites and landing pages.',
-      fullDesc: 'Focused on delivering visually stunning and highly interactive web experiences. Specialized in CSS animations, accessibility standards, and cross-browser compatibility.',
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'Framer Motion']
-    }
-  ];
+  const experiences = dict.experience.items || [];
 
   return (
     <Section id="experience">
@@ -132,14 +100,14 @@ export function ExperienceSection({ dict }: ExperienceSectionProps) {
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-white font-medium mb-3">Role Description</h4>
+                  <h4 className="text-white font-medium mb-3">{dict.experience.roleDescLabel || 'Role Description'}</h4>
                   <p className="text-gray-300 leading-relaxed">
                     {exp.fullDesc}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-white font-medium mb-3">Technologies & Skills</h4>
+                  <h4 className="text-white font-medium mb-3">{dict.experience.skillsLabel || 'Technologies & Skills'}</h4>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map(skill => (
                       <span key={skill} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-gray-300">

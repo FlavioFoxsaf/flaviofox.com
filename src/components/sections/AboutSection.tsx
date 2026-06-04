@@ -39,20 +39,26 @@ export function AboutSection({ dict }: AboutSectionProps) {
           
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 text-sm transition-colors mt-6"
+            className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white font-medium flex items-center gap-2 text-sm transition-colors mt-6 w-fit"
           >
             {dict.about.readMore}
             <ExternalLink className="w-4 h-4" />
           </button>
           
           <div className="grid grid-cols-2 gap-6 pt-8">
-            <div className="glass p-6 rounded-2xl">
-              <div className="text-3xl font-bold text-white mb-2">5+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
+            <div 
+              onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
+              className="glass p-6 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors group"
+            >
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{dict.about.stats?.education.count || '3'}</div>
+              <div className="text-sm text-gray-400">{dict.about.stats?.education.label || 'Higher Education Degrees'}</div>
             </div>
-            <div className="glass p-6 rounded-2xl">
-              <div className="text-3xl font-bold text-white mb-2">50+</div>
-              <div className="text-sm text-gray-400">Projects Delivered</div>
+            <div 
+              onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })}
+              className="glass p-6 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors group"
+            >
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{dict.about.stats?.certifications.count || '8'}</div>
+              <div className="text-sm text-gray-400">{dict.about.stats?.certifications.label || 'Certifications'}</div>
             </div>
           </div>
         </div>

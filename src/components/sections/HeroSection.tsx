@@ -57,7 +57,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors w-full sm:w-auto"
             >
               {dict.hero.primaryCta}

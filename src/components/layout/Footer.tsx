@@ -2,7 +2,7 @@
 
 import { Dictionary } from '@/i18n/dictionaries';
 import { Mail, ArrowUp } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 interface FooterProps {
   dict: Dictionary;
@@ -25,7 +25,8 @@ export function Footer({ dict }: FooterProps) {
         <div className="flex space-x-6 mb-6 md:mb-0 text-gray-400">
           <a href="#" className="hover:text-white transition-colors"><FaGithub className="w-5 h-5" /></a>
           <a href="#" className="hover:text-white transition-colors"><FaLinkedin className="w-5 h-5" /></a>
-          <a href="#" className="hover:text-white transition-colors"><FaTwitter className="w-5 h-5" /></a>
+          <a href="#" className="hover:text-white transition-colors"><FaInstagram className="w-5 h-5" /></a>
+          <a href="#" className="hover:text-white transition-colors"><FaWhatsapp className="w-5 h-5" /></a>
           <a href="#" className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
         </div>
 
