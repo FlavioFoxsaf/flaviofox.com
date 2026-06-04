@@ -15,44 +15,7 @@ interface ProjectsSectionProps {
 export function ProjectsSection({ dict }: ProjectsSectionProps) {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      category: 'Full Stack',
-      shortDesc: 'A high-performance modern e-commerce solution built with Next.js and Stripe.',
-      fullDesc: 'Developed a complete e-commerce platform featuring a custom shopping cart, secure checkout via Stripe, real-time inventory management, and an intuitive admin dashboard. The application handles high concurrent traffic and offers a seamless user experience.',
-      image: 'gradient-to-br from-blue-900 to-indigo-900',
-      tags: ['Next.js', 'TypeScript', 'Stripe', 'Tailwind CSS'],
-    },
-    {
-      id: 2,
-      title: 'Financial Dashboard',
-      category: 'Frontend',
-      shortDesc: 'Real-time data visualization dashboard for financial metrics.',
-      fullDesc: 'Created an interactive dashboard for visualizing complex financial data sets. Integrated websockets for real-time updates and implemented complex chart components that are both performant and accessible.',
-      image: 'gradient-to-br from-emerald-900 to-teal-900',
-      tags: ['React', 'D3.js', 'WebSockets', 'Framer Motion'],
-    },
-    {
-      id: 3,
-      title: 'AI Content Generator',
-      category: 'SaaS',
-      shortDesc: 'AI-powered writing assistant using OpenAI API.',
-      fullDesc: 'Built a SaaS application that leverages AI to generate high-quality marketing copy, blog posts, and social media content. Includes user authentication, subscription management, and a rich text editor.',
-      image: 'gradient-to-br from-purple-900 to-pink-900',
-      tags: ['Next.js', 'OpenAI API', 'PostgreSQL', 'Prisma'],
-    },
-    {
-      id: 4,
-      title: 'Mobile Fitness App',
-      category: 'Mobile',
-      shortDesc: 'Cross-platform mobile application for workout tracking.',
-      fullDesc: 'Developed a comprehensive fitness tracking app with custom workout plans, progress visualization, and social sharing features. Available on both iOS and Android.',
-      image: 'gradient-to-br from-orange-900 to-red-900',
-      tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
-    }
-  ];
+  const projects = dict.projects.items || [];
 
   return (
     <Section id="projects" className="bg-black/50 border-t border-white/5">
@@ -75,9 +38,16 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
             onClick={() => setSelectedProject(project.id)}
           >
             {/* Project Image Placeholder */}
-            <div className={`w-full aspect-video bg-${project.image} relative overflow-hidden`}>
+            <div className={`w-full aspect-video ${!project.imageUrl ? 'bg-gradient-to-br from-gray-900 to-purple-950 flex items-center justify-center' : 'bg-black'} relative overflow-hidden`}>
+              {project.imageUrl ? (
+                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+              ) : (
+                <span className="text-white/30 text-sm font-bold tracking-widest uppercase relative z-10 px-4 text-center">
+                  {dict.projects.inDevelopment}
+                </span>
+              )}
               <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-110 group-hover:scale-100 backdrop-blur-sm bg-black/40">
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-110 group-hover:scale-100 backdrop-blur-sm bg-black/40 z-20">
                 <div className="flex items-center gap-2 text-white font-semibold">
                   <span>{dict.projects.viewProject}</span>
                   <ExternalLink className="w-4 h-4" />
@@ -114,8 +84,14 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
           if (!project) return null;
           return (
             <div className="flex flex-col h-full">
-              <div className={`w-full aspect-video rounded-xl bg-${project.image} mb-8 flex items-center justify-center`}>
-                <span className="text-white/50 text-xl font-medium tracking-widest uppercase">Project Media</span>
+              <div className={`w-full aspect-video rounded-xl overflow-hidden ${!project.imageUrl ? 'bg-gradient-to-br from-gray-900 to-purple-950' : 'bg-black'} mb-8 flex items-center justify-center relative`}>
+                {project.imageUrl ? (
+                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-white/30 text-xl font-medium tracking-widest uppercase">
+                    {dict.projects.inDevelopment}
+                  </span>
+                )}
               </div>
               
               <div className="flex items-start justify-between mb-6">
@@ -127,12 +103,34 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
                 </div>
                 
                 <div className="flex gap-3">
-                  <a href="#" className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors" aria-label="View Source">
-                    <FaGithub className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="p-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors" aria-label="Live Demo">
-                    <MonitorPlay className="w-5 h-5" />
-                  </a>
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="group relative p-3 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors" 
+                      aria-label="View Source"
+                    >
+                      <FaGithub className="w-5 h-5" />
+                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                        {dict.projects.viewCode}
+                      </span>
+                    </a>
+                  )}
+                  {project.demoUrl && (
+                    <a 
+                      href={project.demoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="group relative p-3 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors" 
+                      aria-label="Live Demo"
+                    >
+                      <MonitorPlay className="w-5 h-5" />
+                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                        {dict.projects.viewDemo}
+                      </span>
+                    </a>
+                  )}
                 </div>
               </div>
 

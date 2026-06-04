@@ -108,7 +108,11 @@ export const dictionaries = {
       categories: [
         {
           title: 'Technology & Development',
-          items: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core', 'HTML', 'CSS', 'JavaScript', 'Python', 'C'],
+          items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Git', 'GitHub', 'HTML', 'CSS', 'JavaScript', 'Python', 'C'],
+        },
+        {
+          title: 'Cloud Computing',
+          items: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core'],
         },
         {
           title: 'Interpersonal Skills',
@@ -125,7 +129,7 @@ export const dictionaries = {
       ]
     },
     certifications: {
-      title: 'Licenses & Certifications',
+      title: 'Courses & Certifications',
       viewAll: 'View all certifications',
       viewCertificate: 'View Certificate',
       issued: 'Issued',
@@ -268,8 +272,52 @@ export const dictionaries = {
       ]
     },
     projects: {
-      title: 'Featured Projects',
+      title: 'Projects',
       viewProject: 'View Project',
+      viewCode: 'View Code',
+      viewDemo: 'View Live Project',
+      inDevelopment: 'IN DEVELOPMENT',
+      items: [
+        {
+          id: 1,
+          title: 'Personal Website (Portfolio)',
+          category: 'Frontend',
+          shortDesc: 'Modern and responsive professional hub, designed to unify technical trajectory and skills in a digital showcase.',
+          fullDesc: 'Tailor-made web solution created to transform a traditional resume into an interactive and dynamic digital experience. The project prioritizes a lightweight architecture, intuitive navigation, and fast loading to optimize the time of recruiters and business partners, ensuring a strategic, clean, and conversion-focused professional positioning.',
+          image: 'gradient-to-br from-orange-900 to-indigo-900',
+          imageUrl: '/Preview-Projetos/Preview-Portfolio.png',
+          githubUrl: 'https://github.com/FlavioFoxsaf/flaviofox.com',
+          demoUrl: 'https://flaviofox.com',
+          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostCSS', 'Git'],
+        },
+        {
+          id: 2,
+          title: 'Financial Dashboard',
+          category: 'Frontend',
+          shortDesc: 'Real-time data visualization dashboard for financial metrics.',
+          fullDesc: 'Created an interactive dashboard for visualizing complex financial data sets. Integrated websockets for real-time updates and implemented complex chart components that are both performant and accessible.',
+          image: 'gradient-to-br from-emerald-900 to-teal-900',
+          tags: ['React', 'D3.js', 'WebSockets', 'Framer Motion'],
+        },
+        {
+          id: 3,
+          title: 'AI Content Generator',
+          category: 'SaaS',
+          shortDesc: 'AI-powered writing assistant using OpenAI API.',
+          fullDesc: 'Built a SaaS application that leverages AI to generate high-quality marketing copy, blog posts, and social media content. Includes user authentication, subscription management, and a rich text editor.',
+          image: 'gradient-to-br from-purple-900 to-pink-900',
+          tags: ['Next.js', 'OpenAI API', 'PostgreSQL', 'Prisma'],
+        },
+        {
+          id: 4,
+          title: 'Mobile Fitness App',
+          category: 'Mobile',
+          shortDesc: 'Cross-platform mobile application for workout tracking.',
+          fullDesc: 'Developed a comprehensive fitness tracking app with custom workout plans, progress visualization, and social sharing features. Available on both iOS and Android.',
+          image: 'gradient-to-br from-orange-900 to-red-900',
+          tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
+        }
+      ]
     },
     contact: {
       title: 'Get In Touch',
@@ -393,7 +441,11 @@ export const dictionaries = {
       categories: [
         {
           title: 'Tecnologia e Desenvolvimento',
-          items: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core', 'HTML', 'CSS', 'JavaScript', 'Python', 'C'],
+          items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Git', 'GitHub', 'HTML', 'CSS', 'JavaScript', 'Python', 'C'],
+        },
+        {
+          title: 'Cloud Computing',
+          items: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core'],
         },
         {
           title: 'Competências Interpessoais',
@@ -405,12 +457,12 @@ export const dictionaries = {
         },
         {
           title: 'Mercado Financeiro',
-          items: ['CDB', 'LCI/LCA', 'Tesouro', 'CRI/CRA e Debêntures', 'Ações e FIIs'],
+          items: ['CDB', 'LCI/LCA', 'Tesouro Direto', 'CRI/CRA & Debêntures', 'Ações & FIIs'],
         }
       ]
     },
     certifications: {
-      title: 'Licenças e Certificações',
+      title: 'Cursos e Certificados',
       viewAll: 'Ver todas as certificações',
       viewCertificate: 'Ver certificado',
       issued: 'Emitido em',
@@ -553,8 +605,52 @@ export const dictionaries = {
       ]
     },
     projects: {
-      title: 'Projetos em Destaque',
+      title: 'Projetos',
       viewProject: 'Ver Projeto',
+      viewCode: 'Ver código',
+      viewDemo: 'Visualizar projeto',
+      inDevelopment: 'EM DESENVOLVIMENTO',
+      items: [
+        {
+          id: 1,
+          title: 'Site Pessoal (Portfólio)',
+          category: 'Frontend',
+          shortDesc: 'Hub profissional moderno e responsivo, projetado para unificar a trajetória técnica e competências em uma vitrine digital.',
+          fullDesc: 'Solução web sob medida criada para transformar um currículo tradicional em uma experiência digital interativa e dinâmica. O projeto prioriza uma arquitetura leve, navegação intuitiva e carregamento rápido para otimizar o tempo de recrutadores e parceiros de negócios, garantindo um posicionamento profissional estratégico, limpo e focado na conversão de oportunidades.',
+          image: 'gradient-to-br from-orange-900 to-indigo-900',
+          imageUrl: '/Preview-Projetos/Preview-Portfolio.png',
+          githubUrl: 'https://github.com/FlavioFoxsaf/flaviofox.com',
+          demoUrl: 'https://flaviofox.com',
+          tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostCSS', 'Git'],
+        },
+        {
+          id: 2,
+          title: 'Financial Dashboard',
+          category: 'Frontend',
+          shortDesc: 'Dashboard de visualização de dados em tempo real para métricas financeiras.',
+          fullDesc: 'Dashboard interativo criado para visualizar conjuntos complexos de dados financeiros. Integração com websockets para atualizações em tempo real e implementação de componentes de gráficos complexos, performáticos e acessíveis.',
+          image: 'gradient-to-br from-emerald-900 to-teal-900',
+          tags: ['React', 'D3.js', 'WebSockets', 'Framer Motion'],
+        },
+        {
+          id: 3,
+          title: 'AI Content Generator',
+          category: 'SaaS',
+          shortDesc: 'Assistente de escrita baseado em IA utilizando a API da OpenAI.',
+          fullDesc: 'Aplicação SaaS desenvolvida para utilizar IA na geração de textos de marketing, posts de blog e conteúdo para mídias sociais de alta qualidade. Inclui autenticação de usuários, gerenciamento de assinaturas e um editor de texto rico.',
+          image: 'gradient-to-br from-purple-900 to-pink-900',
+          tags: ['Next.js', 'OpenAI API', 'PostgreSQL', 'Prisma'],
+        },
+        {
+          id: 4,
+          title: 'Mobile Fitness App',
+          category: 'Mobile',
+          shortDesc: 'Aplicativo mobile multiplataforma para acompanhamento de treinos.',
+          fullDesc: 'Aplicativo de monitoramento fitness completo desenvolvido com planos de treino personalizados, visualização de progresso e recursos de compartilhamento social. Disponível para iOS e Android.',
+          image: 'gradient-to-br from-orange-900 to-red-900',
+          tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
+        }
+      ]
     },
     contact: {
       title: 'Entre em Contato',
