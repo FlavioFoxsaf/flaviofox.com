@@ -116,7 +116,7 @@ export const dictionaries = {
         },
         {
           title: 'Interpersonal Skills',
-          items: ['Team Management', 'Strategic Thinking', 'Public Speaking', 'Interpersonal Communication', 'CRM', 'Team Leadership', 'Project Management'],
+          items: ['Team Management', 'Strategic Thinking', 'Public Speaking', 'Interpersonal Communication', 'Customer Relationship Management', 'Team Leadership', 'Project Management'],
         },
         {
           title: 'Tools',
@@ -162,7 +162,7 @@ export const dictionaries = {
         {
           id: 3,
           name: 'Social Media for Business',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/Sua.png',
@@ -173,7 +173,7 @@ export const dictionaries = {
         {
           id: 4,
           name: 'Intellectual Property for Startups',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '02h',
           date: '2021',
           image: '/certificados/Propriedade.png',
@@ -184,7 +184,7 @@ export const dictionaries = {
         {
           id: 5,
           name: 'Innovation',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/Inovação.png',
@@ -195,7 +195,7 @@ export const dictionaries = {
         {
           id: 6,
           name: 'Entrepreneurial Mindset',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '02h',
           date: '2021',
           image: '/certificados/empreendedora.png',
@@ -217,7 +217,7 @@ export const dictionaries = {
         {
           id: 8,
           name: 'Impact Innovation for Startups',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/impacto.png',
@@ -449,7 +449,7 @@ export const dictionaries = {
         },
         {
           title: 'Competências Interpessoais',
-          items: ['Gestão de Equipes', 'Pensamento Estratégico', 'Oratória', 'Comunicação Interpessoal', 'Gestão de Relacionamento com o Cliente (CRM)', 'Gestão de Projetos'],
+          items: ['Gestão de Equipes', 'Pensamento Estratégico', 'Oratória', 'Comunicação Interpessoal', 'Gestão de Relacionamento com o Cliente', 'Gestão de Projetos'],
         },
         {
           title: 'Ferramentas',
@@ -495,7 +495,7 @@ export const dictionaries = {
         {
           id: 3,
           name: 'Sua empresa nas redes sociais',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/Sua.png',
@@ -506,7 +506,7 @@ export const dictionaries = {
         {
           id: 4,
           name: 'Propriedade intelectual para Startups',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '02h',
           date: '2021',
           image: '/certificados/Propriedade.png',
@@ -517,7 +517,7 @@ export const dictionaries = {
         {
           id: 5,
           name: 'Inovação',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/Inovação.png',
@@ -528,7 +528,7 @@ export const dictionaries = {
         {
           id: 6,
           name: 'Como agir de maneira empreendedora',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '02h',
           date: '2021',
           image: '/certificados/empreendedora.png',
@@ -550,7 +550,7 @@ export const dictionaries = {
         {
           id: 8,
           name: 'Inovação de impacto para Startups',
-          issuer: 'Sebrae',
+          issuer: 'SEBRAE',
           hours: '03h',
           date: '2021',
           image: '/certificados/impacto.png',

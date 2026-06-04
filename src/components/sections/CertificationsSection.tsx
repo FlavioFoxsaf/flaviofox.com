@@ -24,7 +24,11 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
-  const certifications = dict.certifications.items || [];
+  const certifications = [...(dict.certifications.items || [])].sort((a, b) => {
+    const yearA = parseInt(a.date.match(/\d{4}/)?.[0] || '0');
+    const yearB = parseInt(b.date.match(/\d{4}/)?.[0] || '0');
+    return yearB - yearA;
+  });
 
   return (
     <Section id="certifications" className="overflow-hidden">
