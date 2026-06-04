@@ -25,8 +25,8 @@ export default function Portfolio({ dict, lang }: PortfolioProps) {
         <HeroSection dict={dict} />
         <AboutSection dict={dict} />
         <SocialLinksSection dict={dict} />
-        <ExperienceSection dict={dict} />
         <EducationSection dict={dict} />
+        <ExperienceSection dict={dict} />
         <SkillsSection dict={dict} />
         <CertificationsSection dict={dict} />
         <ProjectsSection dict={dict} />

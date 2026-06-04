@@ -24,8 +24,8 @@ export function Navbar({ dict, lang }: NavbarProps) {
   const navLinks = [
     { id: 'hero', label: dict.navbar.home },
     { id: 'about', label: dict.navbar.about },
-    { id: 'experience', label: dict.navbar.experience },
     { id: 'education', label: dict.navbar.education },
+    { id: 'experience', label: dict.navbar.experience },
     { id: 'skills', label: dict.navbar.skills },
     { id: 'certifications', label: dict.navbar.certifications },
     { id: 'projects', label: dict.navbar.projects },

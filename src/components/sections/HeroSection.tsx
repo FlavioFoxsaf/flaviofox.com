@@ -37,7 +37,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center mt-20">
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center mt-[15vh]">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
