@@ -83,7 +83,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
           const project = projects.find(p => p.id === selectedProject);
           if (!project) return null;
           return (
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full pt-8">
               <div className={`w-full aspect-video rounded-xl overflow-hidden ${!project.imageUrl ? 'bg-gradient-to-br from-gray-900 to-purple-950' : 'bg-black'} mb-8 flex items-center justify-center relative`}>
                 {project.imageUrl ? (
                   <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
