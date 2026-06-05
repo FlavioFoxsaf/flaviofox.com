@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import AutoScroll from 'embla-carousel-auto-scroll';
+import { useInView } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
@@ -12,19 +14,124 @@ interface EducationSectionProps {
 }
 
 export function EducationSection({ dict }: EducationSectionProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    align: 'start',
-    dragFree: true,
-    containScroll: 'trimSnaps'
-  });
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { amount: 0.1 });
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      align: 'start',
+      dragFree: true,
+      containScroll: 'trimSnaps'
+    },
+    [AutoScroll({ playOnInit: false, speed: 0.5, stopOnInteraction: false })]
+  );
   
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const isRewindingRef = useRef(false);
 
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
+  const resetTimer = (delay: number) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      if (emblaApi) {
+        const autoScroll = emblaApi.plugins().autoScroll;
+        if (autoScroll) autoScroll.play();
+      }
+    }, delay);
+  };
+
+  const stopAutoScroll = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (emblaApi) {
+      const autoScroll = emblaApi.plugins().autoScroll;
+      if (autoScroll) autoScroll.stop();
+    }
+  };
+
+  const handleManualInteraction = () => {
+    stopAutoScroll();
+    if (isInView && !isModalOpen) {
+      resetTimer(6000);
+    }
+  };
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    if (isInView && !isModalOpen) {
+      stopAutoScroll();
+      resetTimer(6000);
+    } else {
+      stopAutoScroll();
+    }
+
+    const onPointerDown = () => {
+      stopAutoScroll();
+    };
+
+    const onPointerUp = () => {
+      if (isInView && !isModalOpen) resetTimer(6000);
+    };
+
+    const checkEnd = () => {
+      if (!emblaApi) return;
+      const progress = emblaApi.scrollProgress();
+      if ((progress >= 0.999 || !emblaApi.canScrollNext()) && !isRewindingRef.current) {
+        isRewindingRef.current = true;
+        stopAutoScroll();
+        
+        timerRef.current = setTimeout(() => {
+          emblaApi.scrollTo(0);
+        }, 3000);
+      }
+    };
+
+    const onScroll = () => {
+      checkEnd();
+    };
+
+    const onSettle = () => {
+      if (!emblaApi) return;
+      const progress = emblaApi.scrollProgress();
+      if (isRewindingRef.current && (progress <= 0.001 || !emblaApi.canScrollPrev())) {
+        isRewindingRef.current = false;
+        if (isInView && !isModalOpen) resetTimer(6000);
+      } else {
+        checkEnd();
+      }
+    };
+
+    emblaApi.on('pointerDown', onPointerDown);
+    emblaApi.on('pointerUp', onPointerUp);
+    emblaApi.on('scroll', onScroll);
+    emblaApi.on('settle', onSettle);
+
+    return () => {
+      emblaApi.off('pointerDown', onPointerDown);
+      emblaApi.off('pointerUp', onPointerUp);
+      emblaApi.off('scroll', onScroll);
+      emblaApi.off('settle', onSettle);
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [emblaApi, isInView, isModalOpen]);
+
+  const scrollPrev = () => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      handleManualInteraction();
+    }
+  };
+  const scrollNext = () => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      handleManualInteraction();
+    }
+  };
 
   return (
     <Section id="education">
+      <div ref={sectionRef}>
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
@@ -58,7 +165,7 @@ export function EducationSection({ dict }: EducationSectionProps) {
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-6 pb-8" style={{ backfaceVisibility: 'hidden', touchAction: 'pan-y' }}>
+        <div className="flex gap-6 pb-8 after:content-[''] after:pr-6 md:after:pr-12" style={{ backfaceVisibility: 'hidden', touchAction: 'pan-y' }}>
           {dict.education.items?.map((edu) => (
             <div 
               key={edu.id}
@@ -113,6 +220,7 @@ export function EducationSection({ dict }: EducationSectionProps) {
           ))}
         </div>
       </Modal>
+      </div>
     </Section>
   );
 }
