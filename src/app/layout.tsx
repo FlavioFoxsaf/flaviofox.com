@@ -5,12 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Flavio Fox | Digital Craftsman & Innovator",
+  title: "Flavio Fox",
   description: "Personal portfolio of Flavio Fox, showcasing professional experience, projects, skills, and certifications.",
   keywords: ["Flavio Fox", "Portfolio", "Software Engineer", "Web Developer", "Full Stack"],
   authors: [{ name: "Flavio Fox" }],
   openGraph: {
-    title: "Flavio Fox | Portfolio",
+    title: "Flavio Fox",
     description: "Digital Craftsman & Innovator building sophisticated web experiences.",
     url: "https://flaviofox.com",
     siteName: "Flavio Fox Portfolio",
