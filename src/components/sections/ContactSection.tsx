@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
@@ -11,6 +12,23 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ dict }: ContactSectionProps) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const mailtoBody = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
+    const mailtoLink = `mailto:flaviofoxsaf@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contato via Site')}&body=${encodeURIComponent(mailtoBody)}`;
+    window.location.href = mailtoLink;
+  };
   return (
     <Section id="contact" className="pb-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -71,22 +89,30 @@ export function ContactSection({ dict }: ContactSectionProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <form className="glass-strong p-8 md:p-10 rounded-3xl space-y-6 border border-white/10" onSubmit={(e) => e.preventDefault()}>
+          <form className="glass-strong p-8 md:p-10 rounded-3xl space-y-6 border border-white/10" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-400 pl-1">{dict.contact.nameLabel}</label>
                 <input 
                   type="text" 
-                  placeholder="John Doe"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={dict.contact.namePlaceholder}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-colors"
+                  required
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-400 pl-1">{dict.contact.emailLabel}</label>
                 <input 
                   type="email" 
-                  placeholder="john@example.com"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder={dict.contact.emailPlaceholder}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-colors"
+                  required
                 />
               </div>
             </div>
@@ -95,8 +121,12 @@ export function ContactSection({ dict }: ContactSectionProps) {
               <label className="text-sm font-medium text-gray-400 pl-1">{dict.contact.subjectLabel}</label>
               <input 
                 type="text" 
-                placeholder="Project Inquiry"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder={dict.contact.subjectPlaceholder}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-colors"
+                required
               />
             </div>
             
@@ -104,8 +134,12 @@ export function ContactSection({ dict }: ContactSectionProps) {
               <label className="text-sm font-medium text-gray-400 pl-1">{dict.contact.messageLabel}</label>
               <textarea 
                 rows={5}
-                placeholder="Hello, I'd like to talk about..."
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={dict.contact.messagePlaceholder}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-blue-500 focus:bg-white/10 transition-colors resize-none"
+                required
               />
             </div>
 
