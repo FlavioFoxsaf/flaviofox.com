@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 interface ContactSectionProps {
   dict: Dictionary;
@@ -18,16 +19,77 @@ export function ContactSection({ dict }: ContactSectionProps) {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<{show: boolean, message: string, type: 'success' | 'error' | 'warning'}>({
+    show: false,
+    message: '',
+    type: 'success'
+  });
+
+  const showToastMessage = (message: string, type: 'success' | 'error' | 'warning') => {
+    setToast({ show: true, message, type });
+    setTimeout(() => {
+      setToast(prev => ({ ...prev, show: false }));
+    }, 4000);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoBody = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
-    const mailtoLink = `mailto:flaviofoxsaf@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contato via Site')}&body=${encodeURIComponent(mailtoBody)}`;
-    window.location.href = mailtoLink;
+    
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      showToastMessage("Por favor, preencha todos os campos antes de enviar.", "warning");
+      return;
+    }
+    
+    if (!validateEmail(formData.email)) {
+      showToastMessage("Por favor, insira um endereço de e-mail válido.", "warning");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      // Dispara os dois e-mails simultaneamente usando Promise.all
+      await Promise.all([
+        // Notificação para o dono (Flavio)
+        emailjs.send(
+          'service_05inotr',
+          'template_ynrcxxs',
+          templateParams,
+          's-1CTbizO1Nje87bi'
+        ),
+        // Auto-resposta para o cliente
+        emailjs.send(
+          'service_05inotr',
+          'template_fhd5ojs',
+          templateParams,
+          's-1CTbizO1Nje87bi'
+        )
+      ]);
+
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      showToastMessage("Mensagem enviada com sucesso! Em breve entrarei em contato.", "success");
+    } catch (error) {
+      console.error("Erro no envio do email:", error);
+      showToastMessage("Ocorreu um erro ao enviar a mensagem. Verifique sua internet e tente novamente.", "error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <Section id="contact" className="pb-32">
@@ -56,8 +118,8 @@ export function ContactSection({ dict }: ContactSectionProps) {
                 <Phone className="w-6 h-6 text-purple-500" />
               </div>
               <div>
-                <div className="text-sm text-gray-500 font-medium mb-1">Phone</div>
-                <div className="text-white">(71) 98710-7553</div>
+                <div className="text-sm text-gray-500 font-medium mb-1">{dict.contact.phoneLabel}</div>
+                <div className="text-white">+55 (71) 98710-7553</div>
               </div>
             </div>
 
@@ -67,7 +129,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1 group-hover:text-gray-400 transition-colors">WhatsApp</div>
-                <div className="text-white">Start a conversation</div>
+                <div className="text-white">{dict.contact.whatsappAction}</div>
               </div>
             </a>
 
@@ -76,7 +138,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
                 <MapPin className="w-6 h-6 text-red-500" />
               </div>
               <div>
-                <div className="text-sm text-gray-500 font-medium mb-1">Location</div>
+                <div className="text-sm text-gray-500 font-medium mb-1">{dict.contact.locationLabel}</div>
                 <div className="text-white">Salvador, BA</div>
               </div>
             </div>
@@ -89,7 +151,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <form className="glass-strong p-8 md:p-10 rounded-3xl space-y-6 border border-white/10" onSubmit={handleSubmit}>
+          <form className="glass-strong p-8 md:p-10 rounded-3xl space-y-6 border border-white/10" onSubmit={handleSubmit} noValidate>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-400 pl-1">{dict.contact.nameLabel}</label>
@@ -145,14 +207,32 @@ export function ContactSection({ dict }: ContactSectionProps) {
 
             <button 
               type="submit"
-              className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors group"
+              disabled={isSubmitting}
+              className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors group disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {dict.contact.submitBtn}
-              <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              {isSubmitting ? 'Enviando...' : dict.contact.submitBtn}
+              {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
             </button>
           </form>
         </motion.div>
       </div>
+      <AnimatePresence>
+        {toast.show && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] px-6 py-3 rounded-full glass-strong border border-white/10 text-white font-medium shadow-2xl flex items-center gap-3 whitespace-nowrap md:whitespace-normal text-sm md:text-base text-center max-w-[90vw]"
+          >
+            {toast.type === 'success' ? (
+              <CheckCircle2 className="w-5 h-5 text-green-400 shrink-0" />
+            ) : (
+              <AlertCircle className={`w-5 h-5 shrink-0 ${toast.type === 'warning' ? 'text-yellow-400' : 'text-red-400'}`} />
+            )}
+            {toast.message}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 }

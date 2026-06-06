@@ -19,11 +19,11 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
 
   return (
     <Section id="projects" className="bg-black/50 border-t border-white/5">
-      <div className="text-center mb-16">
+      <div className="text-left md:text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
           {dict.projects.title}
         </h2>
-        <div className="w-20 h-1 bg-white mx-auto rounded-full" />
+        <div className="w-20 h-1 bg-white rounded-full md:mx-auto" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

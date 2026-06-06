@@ -140,7 +140,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
   return (
     <Section id="certifications" className="overflow-hidden">
       <div ref={sectionRef}>
-      <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
         <div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             {dict.certifications.title}
@@ -230,7 +230,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
           if (!cert) return null;
           return (
             <div>
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-6 pr-12">
                 <div className="text-5xl">{cert.icon}</div>
                 <div>
                   <h3 className="text-2xl font-bold text-white leading-tight">{cert.name}</h3>

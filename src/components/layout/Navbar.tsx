@@ -52,13 +52,14 @@ export function Navbar({ dict, lang }: NavbarProps) {
 
   const scrollTo = (id: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth',
-      });
-    }
+    // Add small delay to allow menu closing animation before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const y = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   const toggleLanguage = () => {
@@ -112,6 +113,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
       }}
       className="fixed top-0 left-0 right-0 z-50"
     >
+      <div className={`absolute inset-0 bg-[#050505]/95 backdrop-blur-xl md:hidden -z-10 transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`} />
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         <div 
           className="text-2xl font-bold tracking-tighter text-white cursor-pointer"
@@ -143,13 +145,21 @@ export function Navbar({ dict, lang }: NavbarProps) {
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-4">
+          <button 
+            onClick={toggleLanguage}
+            className="px-3 py-1 rounded-full border border-gray-600 text-xs font-bold text-white hover:bg-white hover:text-black transition-colors"
+          >
+            {lang === 'en' ? 'EN' : 'PT'}
+          </button>
+          <button 
+            className="text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -159,7 +169,7 @@ export function Navbar({ dict, lang }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-white/10"
+            className="md:hidden absolute top-full left-0 right-0 bg-[#050505]/95 backdrop-blur-xl border-t border-b border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="flex flex-col px-6 py-4 space-y-4">
               {navLinks.map((link) => (
@@ -174,12 +184,6 @@ export function Navbar({ dict, lang }: NavbarProps) {
                   {link.label}
                 </button>
               ))}
-              <button 
-                onClick={toggleLanguage}
-                className="self-start px-4 py-2 mt-2 rounded border border-gray-600 text-sm font-bold"
-              >
-                {lang === 'en' ? 'Switch to Portuguese' : 'Mudar para Inglês'}
-              </button>
             </div>
           </motion.div>
         )}

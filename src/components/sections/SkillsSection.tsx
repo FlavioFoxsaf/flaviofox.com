@@ -33,7 +33,7 @@ export function SkillsSection({ dict }: SkillsSectionProps) {
 
   return (
     <Section id="skills" className="overflow-hidden">
-      <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
         <div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             {dict.skills.title}
@@ -79,7 +79,7 @@ export function SkillsSection({ dict }: SkillsSectionProps) {
                 {category.title}
               </h3>
               
-              <div className="flex flex-wrap gap-3 relative z-10 mt-auto">
+              <div className="flex flex-wrap gap-3 relative z-10">
                 {category.items.map((skill, skillIdx) => (
                   <motion.span
                     key={skill}

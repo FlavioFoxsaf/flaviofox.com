@@ -332,6 +332,9 @@ export const dictionaries = {
       messagePlaceholder: "Hello, I'd like to talk about...",
       submitBtn: 'Send Message',
       emailCopied: 'Email copied!',
+      whatsappAction: 'Send a message',
+      phoneLabel: 'Phone',
+      locationLabel: 'Location',
     },
     footer: {
       copyright: '© 2026 Flavio Fox. All rights reserved.',
@@ -669,6 +672,9 @@ export const dictionaries = {
       messagePlaceholder: 'Olá, eu gostaria de falar sobre...',
       submitBtn: 'Enviar Mensagem',
       emailCopied: 'Email copiado!',
+      whatsappAction: 'Enviar uma mensagem',
+      phoneLabel: 'Telefone',
+      locationLabel: 'Localização',
     },
     footer: {
       copyright: '© 2026 Flavio Fox. Todos os direitos reservados.',
