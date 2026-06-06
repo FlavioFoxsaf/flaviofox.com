@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 import { Dictionary, Language } from '@/i18n/dictionaries';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 interface NavbarProps {
@@ -139,9 +140,19 @@ export function Navbar({ dict, lang }: NavbarProps) {
           
           <button 
             onClick={toggleLanguage}
-            className="ml-4 px-3 py-1 rounded-full border border-gray-600 text-xs font-bold hover:bg-white hover:text-black transition-colors"
+            className="ml-4 px-3 py-1.5 rounded-full border border-gray-600 flex items-center gap-2 text-xs font-bold hover:bg-white hover:text-black transition-colors"
           >
-            {lang === 'en' ? 'EN' : 'PT'}
+            {lang === 'en' ? (
+              <>
+                <span>EN</span>
+                <Image src="/flags/us.svg" alt="USA" width={18} height={14} className="rounded-[2px] object-cover" />
+              </>
+            ) : (
+              <>
+                <span>PT</span>
+                <Image src="/flags/br.svg" alt="Brazil" width={18} height={14} className="rounded-[2px] object-cover" />
+              </>
+            )}
           </button>
         </div>
 
@@ -149,9 +160,19 @@ export function Navbar({ dict, lang }: NavbarProps) {
         <div className="flex md:hidden items-center gap-4">
           <button 
             onClick={toggleLanguage}
-            className="px-3 py-1 rounded-full border border-gray-600 text-xs font-bold text-white hover:bg-white hover:text-black transition-colors"
+            className="px-3 py-1.5 rounded-full border border-gray-600 flex items-center gap-2 text-xs font-bold text-white hover:bg-white hover:text-black transition-colors"
           >
-            {lang === 'en' ? 'EN' : 'PT'}
+            {lang === 'en' ? (
+              <>
+                <span>EN</span>
+                <Image src="/flags/us.svg" alt="USA" width={18} height={14} className="rounded-[2px] object-cover" />
+              </>
+            ) : (
+              <>
+                <span>PT</span>
+                <Image src="/flags/br.svg" alt="Brazil" width={18} height={14} className="rounded-[2px] object-cover" />
+              </>
+            )}
           </button>
           <button 
             className="text-white"
