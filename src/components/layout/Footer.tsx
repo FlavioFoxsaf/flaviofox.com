@@ -19,7 +19,7 @@ export function Footer({ dict }: FooterProps) {
 
   const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText('flaviofoxsaf@gmail.com');
+    navigator.clipboard.writeText('contato@flaviofox.com');
     setShowToast(true);
     setTimeout(() => setShowToast(false), 2000);
   };
@@ -38,7 +38,7 @@ export function Footer({ dict }: FooterProps) {
           <a href="https://www.linkedin.com/in/flaviofox/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaLinkedin className="w-5 h-5" /></a>
           <a href="https://www.instagram.com/flavio_fox/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaInstagram className="w-5 h-5" /></a>
           <a href="https://wa.me/5571987107553" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaWhatsapp className="w-5 h-5" /></a>
-          <a href="mailto:flaviofoxsaf@gmail.com" onClick={handleEmailClick} className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+          <a href="mailto:contato@flaviofox.com" onClick={handleEmailClick} className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
         </div>
 
         <button 

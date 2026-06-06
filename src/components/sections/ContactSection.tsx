@@ -146,7 +146,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
               </div>
               <div>
                 <div className="text-sm text-gray-500 font-medium mb-1">Email</div>
-                <div className="text-white">flaviofoxsaf@gmail.com</div>
+                <div className="text-white">contato@flaviofox.com</div>
               </div>
             </div>
             

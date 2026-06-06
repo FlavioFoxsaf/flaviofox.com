@@ -17,7 +17,7 @@ export function SocialLinksSection({ dict }: SocialLinksSectionProps) {
     { icon: FaGithub, label: 'GitHub', href: 'https://github.com/FlavioFoxsaf', color: 'hover:text-white', glow: 'group-hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]' },
     { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/flavio_fox/', color: 'hover:text-pink-500', glow: 'group-hover:shadow-[0_0_20px_rgba(236,72,153,0.5)]' },
     { icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/5571987107553', color: 'hover:text-green-500', glow: 'group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]' },
-    { icon: Mail, label: 'Email', href: 'mailto:flaviofoxsaf@gmail.com', color: 'hover:text-red-500', glow: 'group-hover:shadow-[0_0_20px_rgba(239,68,68,0.5)]' },
+    { icon: Mail, label: 'Email', href: 'mailto:contato@flaviofox.com', color: 'hover:text-red-500', glow: 'group-hover:shadow-[0_0_20px_rgba(239,68,68,0.5)]' },
   ];
 
   const [showToast, setShowToast] = useState(false);
