@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
@@ -25,6 +25,40 @@ export function ContactSection({ dict }: ContactSectionProps) {
     message: '',
     type: 'success'
   });
+  const [cooldownRemaining, setCooldownRemaining] = useState(0);
+  const COOLDOWN_TIME = 300;
+
+  useEffect(() => {
+    const checkCooldown = () => {
+      const lastSentStr = localStorage.getItem('lastEmailSentAt');
+      if (lastSentStr) {
+        const elapsed = Math.floor((Date.now() - parseInt(lastSentStr, 10)) / 1000);
+        if (elapsed < COOLDOWN_TIME) {
+          setCooldownRemaining(COOLDOWN_TIME - elapsed);
+        } else {
+          localStorage.removeItem('lastEmailSentAt');
+          setCooldownRemaining(0);
+        }
+      } else {
+        setCooldownRemaining(0);
+      }
+    };
+
+    checkCooldown();
+
+    let interval: NodeJS.Timeout;
+    if (cooldownRemaining > 0) {
+      interval = setInterval(checkCooldown, 1000);
+    }
+    
+    return () => clearInterval(interval);
+  }, [cooldownRemaining > 0]);
+
+  const formatTime = (seconds: number) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
 
   const showToastMessage = (message: string, type: 'success' | 'error' | 'warning') => {
     setToast({ show: true, message, type });
@@ -84,6 +118,9 @@ export function ContactSection({ dict }: ContactSectionProps) {
 
       setFormData({ name: '', email: '', subject: '', message: '' });
       showToastMessage("Mensagem enviada com sucesso! Em breve entrarei em contato.", "success");
+      
+      localStorage.setItem('lastEmailSentAt', Date.now().toString());
+      setCooldownRemaining(COOLDOWN_TIME);
     } catch (error) {
       console.error("Erro no envio do email:", error);
       showToastMessage("Ocorreu um erro ao enviar a mensagem. Verifique sua internet e tente novamente.", "error");
@@ -207,11 +244,15 @@ export function ContactSection({ dict }: ContactSectionProps) {
 
             <button 
               type="submit"
-              disabled={isSubmitting}
+              disabled={isSubmitting || cooldownRemaining > 0}
               className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors group disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Enviando...' : dict.contact.submitBtn}
-              {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+              {cooldownRemaining > 0 
+                ? (dict.contact.submitBtn === 'Send Message' ? `Wait ${formatTime(cooldownRemaining)}` : `Aguarde ${formatTime(cooldownRemaining)}`)
+                : isSubmitting 
+                  ? 'Enviando...' 
+                  : dict.contact.submitBtn}
+              {!isSubmitting && cooldownRemaining === 0 && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
             </button>
           </form>
         </motion.div>
