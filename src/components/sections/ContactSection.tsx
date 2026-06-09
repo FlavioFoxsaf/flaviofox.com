@@ -102,17 +102,17 @@ export function ContactSection({ dict }: ContactSectionProps) {
       await Promise.all([
         // Notificação para o dono (Flavio)
         emailjs.send(
-          'service_05inotr',
-          'template_ynrcxxs',
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_OWNER!,
           templateParams,
-          's-1CTbizO1Nje87bi'
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         ),
         // Auto-resposta para o cliente
         emailjs.send(
-          'service_05inotr',
-          'template_fhd5ojs',
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_AUTO!,
           templateParams,
-          's-1CTbizO1Nje87bi'
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
         )
       ]);
 
