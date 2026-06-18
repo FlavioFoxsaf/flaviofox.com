@@ -14,16 +14,16 @@ export const dictionaries = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Software Engineering and Systems Analysis and Development Student',
+      title: 'Software Engineering | Data Science & AI | Systems Analysis & Development',
       subtitle: 'AWS Student Builders Group Co-Leader | Leadership & Team Management',
       primaryCta: 'Skills',
       secondaryCta: 'Contact',
     },
     about: {
       title: 'About Me',
-      contentShort: 'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Computer Engineering at SENAI CIMATEC, Software Engineering, and Systems Analysis and Development, combining academic structure with my practical background in management and communication.\n\nMy career path is marked by solid entrepreneurial experience...',
+      contentShort: 'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Data Science and Artificial Intelligence at SENAI CIMATEC, Software Engineering, and Systems Analysis and Development, combining academic structure with my practical background in management and communication.\n\nMy career path is marked by solid entrepreneurial experience...',
       contentFull: [
-        'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Computer Engineering at SENAI CIMATEC, Software Engineering, and Systems Analysis and Development, combining academic structure with my practical background in management and communication.',
+        'I have always been driven by the curiosity to understand how processes work and the determination to make things happen. Currently, I am pursuing a degree in Data Science and Artificial Intelligence at SENAI CIMATEC, Software Engineering, and Systems Analysis and Development, combining academic structure with my practical background in management and communication.',
         'My career path is marked by solid entrepreneurial experience. As a former partner at a digital marketing agency, I was responsible for keeping the gears turning: from team leadership to conflict mediation to ensure high-quality results. This experience provided the maturity needed to understand business pain points and the discipline to manage complex workflows.',
         'I believe that technology only reaches its full potential when it is well communicated. Therefore, I see myself as a facilitator: someone who enjoys simplifying processes and disseminating knowledge, acting as a bridge between technical complexity and the real needs of those consuming innovation. In my daily routine, I apply programming logic alongside advanced productivity tools to gain agility and deliver practical solutions.',
         'I am constantly evolving, currently focusing on Cloud Computing (AWS). My goal is to apply my management experience and process-oriented vision to optimize workflows and facilitate technical communication within innovation environments.'
@@ -79,11 +79,11 @@ export const dictionaries = {
         },
         {
           id: 2,
-          degree: 'Computer Engineering',
+          degree: 'Data Science and Artificial Intelligence',
           institution: 'Senai Cimatec',
           period: 'Expected 2028',
           status: 'Current',
-          desc: 'Comprehensive computing background in software development, systems architecture, and emerging technologies, with strong analytical and problem-solving focus.'
+          desc: 'Advanced expertise in data engineering, machine learning architectures, and predictive modeling, combining analytical depth with AI-driven solution development for complex technological challenges.'
         },
         {
           id: 3,
@@ -354,16 +354,16 @@ export const dictionaries = {
       contact: 'Contato',
     },
     hero: {
-      title: 'Estudante de Engenharia de Software e Análise e Desenvolvimento de Sistemas',
+      title: 'Engenharia de Software | Ciência de Dados & IA | Análise e Desenvolvimento de Sistemas',
       subtitle: 'Co-Líder do AWS Student Builders Group | Liderança e Gestão de Equipes',
       primaryCta: 'Habilidades',
       secondaryCta: 'Contato',
     },
     about: {
       title: 'Sobre Mim',
-      contentShort: 'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Engenharia da Computação no SENAI CIMATEC, Engenharia de Software e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.\n\nMinha trajetória é marcada por uma sólida experiência empreendedora...',
+      contentShort: 'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Ciência de Dados e Inteligência Artificial no SENAI CIMATEC, Engenharia de Software e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.\n\nMinha trajetória é marcada por uma sólida experiência empreendedora...',
       contentFull: [
-        'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Engenharia da Computação no SENAI CIMATEC, Engenharia de Software e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.',
+        'Sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer as coisas acontecerem. Atualmente, curso Ciência de Dados e Inteligência Artificial no SENAI CIMATEC, Engenharia de Software e Análise e Desenvolvimento de Sistemas, unindo a visão estruturada da academia à minha bagagem prática em gestão e comunicação.',
         'Minha trajetória é marcada por uma sólida experiência empreendedora. Como ex-sócio de uma agência de marketing digital, assumi a responsabilidade de fazer a engrenagem rodar: da liderança de equipes à mediação de conflitos para garantir resultados. Essa vivência me trouxe a maturidade necessária para entender as dores de um negócio e a disciplina para gerir fluxos de trabalho complexos.',
         'Acredito que a tecnologia só alcança seu potencial máximo quando é bem comunicada. Por isso, me vejo como um facilitador: alguém que gosta de simplificar processos e disseminar conhecimento, atuando como ponte entre a complexidade técnica e as necessidades reais de quem consome a inovação. No meu dia a dia, utilizo a lógica de programação aliada a ferramentas de produtividade avançada para ganhar agilidade e entregar soluções práticas.',
         'Estou em constante evolução, atualmente focado em computação em nuvem (AWS). Meu objetivo é aplicar minha experiência em gestão e visão de processos para otimizar fluxos de trabalho e facilitar a comunicação técnica em ambientes de inovação.'
@@ -419,11 +419,11 @@ export const dictionaries = {
         },
         {
           id: 2,
-          degree: 'Engenharia de Computação',
+          degree: 'Ciência de Dados e Inteligência Artificial',
           institution: 'Senai Cimatec',
           period: 'Finalizando em 2028',
           status: 'Cursando',
-          desc: 'Formação abrangente em computação, desenvolvimento de software, arquitetura de sistemas e tecnologias emergentes, com forte base analítica e foco na resolução de problemas complexos.'
+          desc: 'Experiência avançada em engenharia de dados, arquiteturas de machine learning e modelagem preditiva, combinando profundidade analítica com o desenvolvimento de soluções baseadas em IA para desafios tecnológicos complexos.'
         },
         {
           id: 3,

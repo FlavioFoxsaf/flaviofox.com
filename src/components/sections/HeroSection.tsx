@@ -47,8 +47,15 @@ export function HeroSection({ dict }: HeroSectionProps) {
             Flavio Fox
           </h1>
           <div className="flex flex-col gap-2 mb-12">
-            <h2 className="text-lg md:text-xl font-medium text-gray-200 max-w-3xl mx-auto">
-              {dict.hero.title}
+            <h2 className="text-lg md:text-xl font-medium text-gray-200 max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-y-2 lg:gap-y-0">
+              {dict.hero.title.split('|').map((part, index, array) => (
+                <span key={index} className="flex items-center">
+                  <span className="text-center lg:whitespace-nowrap">{part.trim()}</span>
+                  {index < array.length - 1 && (
+                    <span className="hidden lg:inline-block text-orange-500/50 mx-3">|</span>
+                  )}
+                </span>
+              ))}
             </h2>
             <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
               {dict.hero.subtitle}
