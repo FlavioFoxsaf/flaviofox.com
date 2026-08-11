@@ -31,7 +31,7 @@ export const dictionaries = {
       readMore: 'Learn more',
       stats: {
         education: { count: '3', label: 'Higher Education Degrees' },
-        certifications: { count: '12', label: 'Certifications' }
+        certifications: { count: '14', label: 'Certifications' }
       }
     },
     social: {
@@ -268,6 +268,28 @@ export const dictionaries = {
           icon: '🏎️',
           desc: 'Completing the "High-Performance Leadership: Lessons from Formula 1®" course connected elite management strategies to my vision of leadership and engineering, under the Santander Open Academy seal. This 8-hour immersion empowered me to understand the synergy of multidisciplinary teams under extreme pressure, improving my decision-making and the search for efficiency and continuous improvement in complex projects.',
           url: null
+        },
+        {
+          id: 13,
+          name: 'Network Technician Career Path',
+          issuer: 'CISCO | Universidade Senai Cimatec',
+          hours: '70h',
+          date: '2026',
+          image: '/certificados/CISCO-REDES.png',
+          icon: '/Badges/network-technician-career-path.png',
+          desc: 'Completing the Network Technician certification strengthened my knowledge in network fundamentals, routing, essential services, and wireless connectivity. This immersion under the Cisco Networking Academy seal empowered me to structure secure access, efficiently document support tickets, and sustain the operation of critical systems with speed and precision.',
+          url: 'https://www.credly.com/badges/58826d3d-2d34-4efc-b7aa-c3aa04280ace/public_url'
+        },
+        {
+          id: 14,
+          name: 'AWS SBG Co-Lider',
+          issuer: 'AWS Student Builders Group',
+          hours: 'Continuous',
+          date: '2026',
+          image: '/Badges/aws-sbg-core-team-member-badge.png',
+          icon: '/Badges/aws-sbg-core-team-member-badge.png',
+          desc: 'My participation as Co-leader of the AWS Student Builder Group at SENAI CIMATEC has strengthened my background in community management and project leadership. Being at the helm of this group was fundamental to fostering a culture of innovation on campus, encouraging the development of technical cloud skills and the creation of real solutions among students. Beyond the technical aspect, this journey has added valuable practical insight into engagement, organizing initiatives, and people leadership.',
+          url: 'https://www.credly.com/badges/2c5003e5-eced-45f2-b925-5bb186ebe50b/public_url'
         }
       ]
     },
@@ -371,7 +393,7 @@ export const dictionaries = {
       readMore: 'Saiba mais',
       stats: {
         education: { count: '3', label: 'Graduações de Ensino Superior' },
-        certifications: { count: '12', label: 'Certificações' }
+        certifications: { count: '14', label: 'Certificações' }
       }
     },
     social: {
@@ -608,6 +630,28 @@ export const dictionaries = {
           icon: '🏎️',
           desc: 'A conclusão do curso "Liderança de alta performance: Lições da Formula 1®" conectou estratégias de gerenciamento de elite à minha visão de liderança e engenharia, sob o selo do Santander Open Academy. Essa imersão de 8 horas me capacitou a compreender a sinergia de equipes multidisciplinares sob extrema pressão, aprimorando minha tomada de decisão e a busca por eficiência e melhoria contínua em projetos complexos.',
           url: null
+        },
+        {
+          id: 13,
+          name: 'Network Technician Career Path',
+          issuer: 'CISCO | Universidade Senai Cimatec',
+          hours: '70h',
+          date: '2026',
+          image: '/certificados/CISCO-REDES.png',
+          icon: '/Badges/network-technician-career-path.png',
+          desc: 'A conclusão da certificação Network Technician fortaleceu meu conhecimento em fundamentos de rede, roteamento, serviços essenciais e conectividade sem fio. Essa imersão com o selo da Cisco Networking Academy me capacitou a estruturar acessos seguros, documentar chamados com eficiência e sustentar a operação de sistemas críticos com rapidez e precisão.',
+          url: 'https://www.credly.com/badges/58826d3d-2d34-4efc-b7aa-c3aa04280ace/public_url'
+        },
+        {
+          id: 14,
+          name: 'AWS SBG Co-Lider',
+          issuer: 'AWS Student Builders Group',
+          hours: 'Contínuo',
+          date: '2026',
+          image: '/Badges/aws-sbg-core-team-member-badge.png',
+          icon: '/Badges/aws-sbg-core-team-member-badge.png',
+          desc: 'A minha participação como Co-líder do AWS Student Builder Group no SENAI CIMATEC fortaleceu minha bagagem em gestão de comunidades e liderança de projetos. Estar na liderança desse grupo foi fundamental para fomentar a cultura de inovação no campus, incentivando o desenvolvimento de habilidades técnicas em nuvem e a criação de soluções reais entre os estudantes. Mais do que o aspecto técnico, essa trajetória agregou uma visão prática valiosa sobre engajamento, organização de iniciativas e liderança de pessoas.',
+          url: 'https://www.credly.com/badges/2c5003e5-eced-45f2-b925-5bb186ebe50b/public_url'
         }
       ]
     },

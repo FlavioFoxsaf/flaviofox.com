@@ -134,7 +134,10 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
   const certifications = [...(dict.certifications.items || [])].sort((a, b) => {
     const yearA = parseInt(a.date.match(/\d{4}/)?.[0] || '0');
     const yearB = parseInt(b.date.match(/\d{4}/)?.[0] || '0');
-    return yearB - yearA;
+    if (yearB !== yearA) {
+      return yearB - yearA;
+    }
+    return b.id - a.id;
   });
 
   return (
@@ -180,20 +183,27 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
               className="flex-[0_0_80%] md:flex-[0_0_40%] lg:flex-[0_0_28%] min-w-0"
             >
               <div 
-                className="glass p-6 rounded-2xl h-full border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden cursor-pointer"
+                className="glass p-6 rounded-2xl h-full flex flex-col border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden cursor-pointer"
                 onClick={() => setSelectedCert(cert.id)}
               >
-                <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl group-hover:scale-110 transition-transform duration-500">
-                  {cert.icon}
+                <div className="flex justify-between items-start mb-6">
+                  <Award className="w-8 h-8 text-green-500 shrink-0" />
+                  <div className="text-5xl group-hover:scale-110 transition-transform duration-500 opacity-20 group-hover:opacity-40">
+                    {cert.icon.startsWith('/') ? (
+                      <img src={cert.icon} alt="" className="w-[1em] h-[1em] object-contain" />
+                    ) : (
+                      cert.icon
+                    )}
+                  </div>
                 </div>
-                <Award className="w-8 h-8 text-green-500 mb-4" />
+                
                 <h3 className="text-lg font-bold text-white mb-2 leading-tight">
                   {cert.name}
                 </h3>
                 <div className="text-green-400 font-medium text-sm mb-4">
                   {cert.issuer}
                 </div>
-                <div className="text-xs text-gray-500 font-mono mt-auto">
+                <div className="text-xs text-gray-500 font-mono mt-auto pt-4">
                   {dict.certifications.issued}: {cert.date}
                 </div>
               </div>
@@ -213,7 +223,13 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
               }}
               className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4 cursor-pointer hover:bg-white/10 transition-colors"
             >
-              <div className="text-3xl">{cert.icon}</div>
+              <div className="text-3xl">
+                {cert.icon.startsWith('/') ? (
+                  <img src={cert.icon} alt="" className="w-[1em] h-[1em] object-contain" />
+                ) : (
+                  cert.icon
+                )}
+              </div>
               <div>
                 <h4 className="text-white font-bold text-sm">{cert.name}</h4>
                 <div className="text-gray-400 text-xs mt-1">{cert.issuer}</div>
@@ -231,7 +247,13 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
           return (
             <div>
               <div className="flex items-center gap-4 mb-6 pr-12">
-                <div className="text-5xl">{cert.icon}</div>
+                <div className="text-5xl">
+                  {cert.icon.startsWith('/') ? (
+                    <img src={cert.icon} alt="" className="w-[1em] h-[1em] object-contain" />
+                  ) : (
+                    cert.icon
+                  )}
+                </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white leading-tight">{cert.name}</h3>
                   <div className="text-green-400 font-medium mt-1">{cert.issuer}</div>
