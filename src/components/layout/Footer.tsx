@@ -36,7 +36,7 @@ export function Footer({ dict }: FooterProps) {
         <div className="flex space-x-6 mb-6 md:mb-0 text-gray-400">
           <a href="https://github.com/FlavioFoxsaf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaGithub className="w-5 h-5" /></a>
           <a href="https://www.linkedin.com/in/flaviofox/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaLinkedin className="w-5 h-5" /></a>
-          <a href="https://www.instagram.com/flavio_fox/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaInstagram className="w-5 h-5" /></a>
+          <a href="https://www.instagram.com/foxflavio/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaInstagram className="w-5 h-5" /></a>
           <a href="https://wa.me/5571987107553" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><FaWhatsapp className="w-5 h-5" /></a>
           <a href="mailto:contato@flaviofox.com" onClick={handleEmailClick} className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
         </div>
