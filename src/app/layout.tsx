@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Flavio Fox" }],
   openGraph: {
     title: "Flavio Fox",
-    description: "Digital Craftsman & Innovator building sophisticated web experiences.",
+    description: "Software Engineering | Data Science & AI | Systems Analysis & Development",
     url: "https://flaviofox.com",
     siteName: "Flavio Fox Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Placeholder
+        url: "/fotoff.jpg",
         width: 1200,
         height: 630,
         alt: "Flavio Fox Portfolio",
