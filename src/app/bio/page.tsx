@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,6 +12,87 @@ const FFIcon = ({ className }: { className?: string }) => (
     FF.
   </span>
 );
+
+function SpotlightCard({ 
+  link, 
+  index, 
+  onEmailClick 
+}: { 
+  link: any; 
+  index: number; 
+  onEmailClick?: (e: React.MouseEvent) => void 
+}) {
+  const Icon = link.icon;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const content = (
+    <div 
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className={`w-full py-3 px-4 rounded-xl flex items-center border transition-all duration-300 group hover:-translate-y-1 active:-translate-y-1 backdrop-blur-md min-h-[64px] overflow-hidden relative ${link.color}`}
+    >
+      {/* Spotlight Hover Effect */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovering ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300"
+        style={{
+          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+        }}
+      />
+      
+      <div className={`p-3 rounded-lg bg-white/5 group-hover:bg-white/10 group-active:bg-white/10 transition-colors shrink-0 z-10 relative ${link.iconColor}`}>
+        <Icon className="w-5 h-5 group-hover:scale-110 group-active:scale-110 transition-transform" />
+      </div>
+      <div className="flex-1 flex justify-center overflow-hidden z-10 relative">
+        <span className="font-semibold text-gray-200 group-hover:text-white group-active:text-white transition-colors tracking-wide text-[13px] sm:text-sm whitespace-nowrap px-2">
+          {link.name}
+        </span>
+      </div>
+    </div>
+  );
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ delay: 0.7 + index * 0.1, duration: 0.4, type: "spring" }}
+    >
+      {link.isInternal ? (
+        <Link href={link.url} className="w-full block focus:outline-none">
+          {content}
+        </Link>
+      ) : link.isEmail ? (
+        <button 
+          onClick={onEmailClick}
+          className="w-full block focus:outline-none text-left"
+        >
+          {content}
+        </button>
+      ) : (
+        <a 
+          href={link.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-full block focus:outline-none"
+        >
+          {content}
+        </a>
+      )}
+    </motion.div>
+  );
+}
 
 export default function BioPage() {
   const [lang, setLang] = useState<'PT' | 'EN'>('PT');
@@ -27,11 +108,11 @@ export default function BioPage() {
   const links = [
     {
       name: 'flaviofox.com',
-      url: '/',
+      url: 'https://flaviofox.com',
       icon: FFIcon,
       color: 'border-white/10 bg-white/5 hover:border-white/50 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] active:border-white/50 active:bg-white/10 active:shadow-[0_0_15px_rgba(255,255,255,0.15)]',
       iconColor: 'text-white group-hover:text-white group-active:text-white',
-      isInternal: true
+      isInternal: false
     },
     {
       name: 'LinkedIn',
@@ -77,22 +158,30 @@ export default function BioPage() {
       {/* Tech Background Grid */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] -z-20 pointer-events-none" />
       
-      {/* Floating Orbs */}
+      {/* Dynamic Glow Orbs Background */}
       <motion.div 
         animate={{ 
-          x: [-50, 50, -50], 
-          y: [-50, 50, -50], 
+          x: [-50, 100, -50], 
+          y: [-50, 100, -50], 
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="fixed top-1/4 left-1/4 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" 
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        className="fixed top-1/4 left-1/4 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10 pointer-events-none" 
       />
       <motion.div 
         animate={{ 
-          x: [50, -50, 50], 
-          y: [50, -50, 50], 
+          x: [50, -100, 50], 
+          y: [50, -100, 50], 
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="fixed bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-purple-600/10 rounded-full blur-[100px] -z-10 pointer-events-none" 
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        className="fixed bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-purple-600/20 rounded-full blur-[120px] -z-10 pointer-events-none" 
+      />
+      <motion.div 
+        animate={{ 
+          x: [100, -50, 100], 
+          y: [-100, 50, -100], 
+        }}
+        transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
+        className="fixed top-1/2 left-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-cyan-600/15 rounded-full blur-[120px] -z-10 pointer-events-none -translate-x-1/2 -translate-y-1/2" 
       />
 
       <motion.div 
@@ -195,53 +284,14 @@ export default function BioPage() {
 
         {/* Links Section */}
         <div className="flex flex-col gap-3 w-full mb-8 relative z-20">
-          {links.map((link, index) => {
-            const Icon = link.icon;
-            
-            const LinkContent = (
-              <div className={`w-full py-3 px-4 rounded-xl flex items-center border transition-all duration-300 group hover:-translate-y-1 active:-translate-y-1 backdrop-blur-sm min-h-[64px] ${link.color}`}>
-                <div className={`p-3 rounded-lg bg-white/5 group-hover:bg-white/10 group-active:bg-white/10 transition-colors shrink-0 ${link.iconColor}`}>
-                  <Icon className="w-5 h-5 group-hover:scale-110 group-active:scale-110 transition-transform" />
-                </div>
-                <div className="flex-1 flex justify-center overflow-hidden">
-                  <span className="font-semibold text-gray-200 group-hover:text-white group-active:text-white transition-colors tracking-wide text-[13px] sm:text-sm whitespace-nowrap px-2">
-                    {link.name}
-                  </span>
-                </div>
-              </div>
-            );
-
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + index * 0.1, duration: 0.4, type: "spring" }}
-              >
-                {link.isInternal ? (
-                  <Link href={link.url} className="w-full block focus:outline-none">
-                    {LinkContent}
-                  </Link>
-                ) : link.isEmail ? (
-                  <button 
-                    onClick={handleEmailClick}
-                    className="w-full block focus:outline-none text-left"
-                  >
-                    {LinkContent}
-                  </button>
-                ) : (
-                  <a 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-full block focus:outline-none"
-                  >
-                    {LinkContent}
-                  </a>
-                )}
-              </motion.div>
-            );
-          })}
+          {links.map((link, index) => (
+            <SpotlightCard 
+              key={index} 
+              link={link} 
+              index={index} 
+              onEmailClick={link.isEmail ? handleEmailClick : undefined} 
+            />
+          ))}
         </div>
 
         {/* Footer Icons */}
