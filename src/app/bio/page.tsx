@@ -223,20 +223,11 @@ export default function BioPage() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-[-10px] rounded-full blur-2xl opacity-25 -z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 pointer-events-none"
+              className="absolute inset-[-10px] rounded-full blur-2xl opacity-[0.12] -z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 pointer-events-none"
             />
 
-            {/* Tech Rings (Radar effect) */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border border-blue-500/30 border-dashed"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-[-8px] rounded-full border border-purple-500/20 border-dotted"
-            />
+            {/* Static Solid Ring */}
+            <div className="absolute inset-[-8px] rounded-full border border-blue-400/20" />
             
             {/* Profile Image */}
             <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] z-10 bg-[#050505]">
