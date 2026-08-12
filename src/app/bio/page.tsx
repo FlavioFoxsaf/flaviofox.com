@@ -29,44 +29,44 @@ export default function BioPage() {
       name: 'flaviofox.com',
       url: '/',
       icon: FFIcon,
-      color: 'border-white/10 bg-white/5 hover:border-white/50 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]',
-      iconColor: 'text-white group-hover:text-white',
+      color: 'border-white/10 bg-white/5 hover:border-white/50 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] active:border-white/50 active:bg-white/10 active:shadow-[0_0_15px_rgba(255,255,255,0.15)]',
+      iconColor: 'text-white group-hover:text-white group-active:text-white',
       isInternal: true
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/flaviofox/',
       icon: FaLinkedin,
-      color: 'border-white/10 bg-white/5 hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)]',
-      iconColor: 'text-blue-500 group-hover:text-blue-400'
+      color: 'border-white/10 bg-white/5 hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] active:border-blue-500/50 active:bg-blue-500/10 active:shadow-[0_0_15px_rgba(59,130,246,0.15)]',
+      iconColor: 'text-blue-500 group-hover:text-blue-400 group-active:text-blue-400'
     },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/foxflavio/',
       icon: FaInstagram,
-      color: 'border-white/10 bg-white/5 hover:border-pink-500/50 hover:bg-pink-500/10 hover:shadow-[0_0_15px_rgba(236,72,153,0.15)]',
-      iconColor: 'text-pink-500 group-hover:text-pink-400'
+      color: 'border-white/10 bg-white/5 hover:border-pink-500/50 hover:bg-pink-500/10 hover:shadow-[0_0_15px_rgba(236,72,153,0.15)] active:border-pink-500/50 active:bg-pink-500/10 active:shadow-[0_0_15px_rgba(236,72,153,0.15)]',
+      iconColor: 'text-pink-500 group-hover:text-pink-400 group-active:text-pink-400'
     },
     {
       name: 'WhatsApp',
       url: 'https://wa.me/5571987107553',
       icon: FaWhatsapp,
-      color: 'border-white/10 bg-white/5 hover:border-green-500/50 hover:bg-green-500/10 hover:shadow-[0_0_15px_rgba(34,197,94,0.15)]',
-      iconColor: 'text-green-500 group-hover:text-green-400'
+      color: 'border-white/10 bg-white/5 hover:border-green-500/50 hover:bg-green-500/10 hover:shadow-[0_0_15px_rgba(34,197,94,0.15)] active:border-green-500/50 active:bg-green-500/10 active:shadow-[0_0_15px_rgba(34,197,94,0.15)]',
+      iconColor: 'text-green-500 group-hover:text-green-400 group-active:text-green-400'
     },
     {
       name: 'GitHub',
       url: 'https://github.com/FlavioFoxsaf',
       icon: FaGithub,
-      color: 'border-white/10 bg-white/5 hover:border-gray-400/50 hover:bg-gray-400/10 hover:shadow-[0_0_15px_rgba(156,163,175,0.15)]',
-      iconColor: 'text-gray-300 group-hover:text-white'
+      color: 'border-white/10 bg-white/5 hover:border-gray-400/50 hover:bg-gray-400/10 hover:shadow-[0_0_15px_rgba(156,163,175,0.15)] active:border-gray-400/50 active:bg-gray-400/10 active:shadow-[0_0_15px_rgba(156,163,175,0.15)]',
+      iconColor: 'text-gray-300 group-hover:text-white group-active:text-white'
     },
     {
       name: 'E-mail (contato@flaviofox.com)',
       url: 'mailto:contato@flaviofox.com',
       icon: Mail,
-      color: 'border-white/10 bg-white/5 hover:border-red-500/50 hover:bg-red-500/10 hover:shadow-[0_0_15px_rgba(239,68,68,0.15)]',
-      iconColor: 'text-red-500 group-hover:text-red-400',
+      color: 'border-white/10 bg-white/5 hover:border-red-500/50 hover:bg-red-500/10 hover:shadow-[0_0_15px_rgba(239,68,68,0.15)] active:border-red-500/50 active:bg-red-500/10 active:shadow-[0_0_15px_rgba(239,68,68,0.15)]',
+      iconColor: 'text-red-500 group-hover:text-red-400 group-active:text-red-400',
       isEmail: true
     }
   ];
@@ -128,7 +128,7 @@ export default function BioPage() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5, type: "spring", stiffness: 100 }}
-            className="relative w-40 h-40 md:w-48 md:h-48 rounded-full mb-6 flex items-center justify-center"
+            className="relative w-32 h-32 md:w-48 md:h-48 rounded-full mb-10 flex items-center justify-center"
           >
             {/* Tech Rings (Radar effect) */}
             <motion.div
@@ -194,18 +194,20 @@ export default function BioPage() {
         </div>
 
         {/* Links Section */}
-        <div className="flex flex-col gap-4 w-full mb-12 relative z-20">
+        <div className="flex flex-col gap-3 w-full mb-8 relative z-20">
           {links.map((link, index) => {
             const Icon = link.icon;
             
             const LinkContent = (
-              <div className={`w-full p-4 rounded-xl flex items-center justify-center border transition-all duration-300 group hover:-translate-y-1 backdrop-blur-sm relative min-h-[64px] ${link.color}`}>
-                <div className={`absolute left-4 p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors ${link.iconColor}`}>
-                  <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <div className={`w-full py-3 px-4 rounded-xl flex items-center border transition-all duration-300 group hover:-translate-y-1 active:-translate-y-1 backdrop-blur-sm min-h-[64px] ${link.color}`}>
+                <div className={`p-3 rounded-lg bg-white/5 group-hover:bg-white/10 group-active:bg-white/10 transition-colors shrink-0 ${link.iconColor}`}>
+                  <Icon className="w-5 h-5 group-hover:scale-110 group-active:scale-110 transition-transform" />
                 </div>
-                <span className="font-semibold text-gray-200 group-hover:text-white transition-colors px-14 text-center tracking-wide text-sm">
-                  {link.name}
-                </span>
+                <div className="flex-1 flex justify-center overflow-hidden">
+                  <span className="font-semibold text-gray-200 group-hover:text-white group-active:text-white transition-colors tracking-wide text-[13px] sm:text-sm whitespace-nowrap px-2">
+                    {link.name}
+                  </span>
+                </div>
               </div>
             );
 
