@@ -232,7 +232,7 @@ export const dictionaries = {
           hours: '02h',
           date: '2026',
           image: '/certificados/Gestão.png',
-          icon: '⏱️',
+          icon: '/Badges/Harvard_University_shield.svg.webp',
           desc: 'Completing the "Time Management" course refined my ability to organize and strategically prioritize tasks in high-demand environments, under the Santander Open Academy seal with Harvard Business Publishing content. This immersion empowered me to optimize workflows and maximize daily productivity, crucial skills for effective leadership and high-performance delivery of complex projects.',
           url: null
         },
@@ -243,7 +243,7 @@ export const dictionaries = {
           hours: '02h',
           date: '2026',
           image: '/certificados/Gemini.png',
-          icon: '🤖',
+          icon: '/Badges/Google_Favicon_2025.svg',
           desc: 'Completing the "Master AI with Gemini" course boosted my ability to integrate Generative Artificial Intelligence into technical and analytical workflows through Santander Open Academy with official Google content. This training gave me mastery in prompt engineering and routine optimization using Gemini, qualifying me to accelerate software development and intelligent problem-solving.',
           url: null
         },
@@ -254,7 +254,7 @@ export const dictionaries = {
           hours: '08h',
           date: '2026',
           image: '/certificados/Prompting.png',
-          icon: '💬',
+          icon: '/Badges/Microsoft_icon.svg',
           desc: 'Completing the "Responsible Prompting: Maximize AI in your business" course deepened my ability to structure advanced and ethical commands for Artificial Intelligence models, under the Santander Open Academy seal with Microsoft and Founderz content. This 8-hour immersion qualified me to design automated and secure solutions, focused on optimizing operational efficiency and generating strategic value aligned with the best tech market practices.',
           url: null
         },
@@ -265,7 +265,7 @@ export const dictionaries = {
           hours: '08h',
           date: '2026',
           image: '/certificados/Liderança.png',
-          icon: '🏎️',
+          icon: '/Badges/santander.png',
           desc: 'Completing the "High-Performance Leadership: Lessons from Formula 1®" course connected elite management strategies to my vision of leadership and engineering, under the Santander Open Academy seal. This 8-hour immersion empowered me to understand the synergy of multidisciplinary teams under extreme pressure, improving my decision-making and the search for efficiency and continuous improvement in complex projects.',
           url: null
         },
@@ -594,7 +594,7 @@ export const dictionaries = {
           hours: '02h',
           date: '2026',
           image: '/certificados/Gestão.png',
-          icon: '⏱️',
+          icon: '/Badges/Harvard_University_shield.svg.webp',
           desc: 'A conclusão do curso "Gestão do Tempo" refinou minha habilidade de organização e priorização estratégica de tarefas em ambientes de alta demanda, sob o selo do Santander Open Academy com conteúdo Harvard Business Publishing. Essa imersão me capacitou a otimizar fluxos de trabalho e maximizar a produtividade diária, competências cruciais para a liderança eficaz e entrega de projetos complexos com alta performance.',
           url: null
         },
@@ -605,7 +605,7 @@ export const dictionaries = {
           hours: '02h',
           date: '2026',
           image: '/certificados/Gemini.png',
-          icon: '🤖',
+          icon: '/Badges/Google_Favicon_2025.svg',
           desc: 'A conclusão do curso "Domine a IA com Gemini" impulsionou minha capacidade de integrar Inteligência Artificial Generativa aos fluxos de trabalho técnicos e analíticos através do Santander Open Academy com conteúdo oficial da Google. Essa capacitação me proporcionou o domínio em engenharia de prompts e otimização de rotinas utilizando o Gemini, me qualificando para acelerar o desenvolvimento de software e a resolução inteligente de problemas.',
           url: null
         },
@@ -616,7 +616,7 @@ export const dictionaries = {
           hours: '08h',
           date: '2026',
           image: '/certificados/Prompting.png',
-          icon: '💬',
+          icon: '/Badges/Microsoft_icon.svg',
           desc: 'A conclusão do curso "Prompting Responsável: Maximizar a IA no seu negócio" aprofundou minha capacidade de estruturar comandos avançados e éticos para modelos de Inteligência Artificial, sob o selo do Santander Open Academy com conteúdo da Microsoft e Founderz. Essa imersão de 8 horas me qualificou a desenhar soluções automatizadas e seguras, focadas em otimizar a eficiência operacional e gerar valor estratégico alinhado às melhores práticas do mercado de tecnologia.',
           url: null
         },
@@ -627,7 +627,7 @@ export const dictionaries = {
           hours: '08h',
           date: '2026',
           image: '/certificados/Liderança.png',
-          icon: '🏎️',
+          icon: '/Badges/santander.png',
           desc: 'A conclusão do curso "Liderança de alta performance: Lições da Formula 1®" conectou estratégias de gerenciamento de elite à minha visão de liderança e engenharia, sob o selo do Santander Open Academy. Essa imersão de 8 horas me capacitou a compreender a sinergia de equipes multidisciplinares sob extrema pressão, aprimorando minha tomada de decisão e a busca por eficiência e melhoria contínua em projetos complexos.',
           url: null
         },
