@@ -219,15 +219,22 @@ export default function BioPage() {
             transition={{ delay: 0.2, duration: 0.5, type: "spring", stiffness: 100 }}
             className="relative w-32 h-32 md:w-48 md:h-48 rounded-full mb-10 flex items-center justify-center"
           >
-            {/* Tech Rings (Radar effect) */}
+            {/* Aura Glow */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-[-10px] rounded-full blur-2xl opacity-25 -z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 pointer-events-none"
+            />
+
+            {/* Tech Rings (Radar effect) */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 rounded-full border border-blue-500/30 border-dashed"
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
               className="absolute inset-[-8px] rounded-full border border-purple-500/20 border-dotted"
             />
             
