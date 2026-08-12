@@ -165,7 +165,7 @@ export default function BioPage() {
           y: [-50, 100, -50], 
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-        className="fixed top-1/4 left-1/4 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10 pointer-events-none" 
+        className="fixed top-1/4 left-1/4 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-blue-600/20 rounded-full blur-[90px] md:blur-[120px] -z-10 pointer-events-none transform-gpu will-change-transform opacity-60 md:opacity-100" 
       />
       <motion.div 
         animate={{ 
@@ -173,7 +173,7 @@ export default function BioPage() {
           y: [50, -100, 50], 
         }}
         transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-        className="fixed bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-purple-600/20 rounded-full blur-[120px] -z-10 pointer-events-none" 
+        className="fixed bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-purple-600/20 rounded-full blur-[90px] md:blur-[120px] -z-10 pointer-events-none transform-gpu will-change-transform opacity-60 md:opacity-100" 
       />
       <motion.div 
         animate={{ 
@@ -181,7 +181,7 @@ export default function BioPage() {
           y: [-100, 50, -100], 
         }}
         transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
-        className="fixed top-1/2 left-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-cyan-600/15 rounded-full blur-[120px] -z-10 pointer-events-none -translate-x-1/2 -translate-y-1/2" 
+        className="fixed top-1/2 left-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-cyan-600/15 rounded-full blur-[90px] md:blur-[120px] -z-10 pointer-events-none -translate-x-1/2 -translate-y-1/2 transform-gpu will-change-transform opacity-60 md:opacity-100" 
       />
 
       <motion.div 
@@ -223,18 +223,19 @@ export default function BioPage() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-[-10px] rounded-full blur-2xl opacity-[0.12] -z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 pointer-events-none"
+              className="absolute inset-[-10px] rounded-full blur-2xl opacity-[0.12] -z-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 pointer-events-none transform-gpu will-change-transform"
             />
 
             {/* Static Solid Ring */}
             <div className="absolute inset-[-8px] rounded-full border border-blue-400/20" />
             
             {/* Profile Image */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] z-10 bg-[#050505]">
+            <div className="relative w-full h-full rounded-full overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(59,130,246,0.2)] z-10 bg-[#050505] transform-gpu">
               <Image
                 src="/fotoff.jpg"
                 alt="Flavio Fox"
                 fill
+                sizes="(max-width: 768px) 128px, 192px"
                 className="object-cover"
                 priority
               />
