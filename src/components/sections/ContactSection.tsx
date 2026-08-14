@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import { SpotlightButton } from '@/components/ui/SpotlightButton';
 
 interface ContactSectionProps {
   dict: Dictionary;
@@ -242,9 +243,10 @@ export function ContactSection({ dict }: ContactSectionProps) {
               />
             </div>
 
-            <button 
+            <SpotlightButton 
               type="submit"
               disabled={isSubmitting || cooldownRemaining > 0}
+              glowColor="rgba(0,0,0,0.15)"
               className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors group disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {cooldownRemaining > 0 
@@ -253,7 +255,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
                   ? 'Enviando...' 
                   : dict.contact.submitBtn}
               {!isSubmitting && cooldownRemaining === 0 && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-            </button>
+            </SpotlightButton>
           </form>
         </motion.div>
       </div>

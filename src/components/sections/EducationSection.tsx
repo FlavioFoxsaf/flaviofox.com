@@ -8,6 +8,8 @@ import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
 import { GraduationCap, Calendar, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SpotlightButton } from '@/components/ui/SpotlightButton';
+import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
 interface EducationSectionProps {
   dict: Dictionary;
@@ -168,26 +170,26 @@ export function EducationSection({ dict }: EducationSectionProps) {
         </div>
         <div className="flex items-center gap-4">
           <div className="flex gap-2">
-            <button 
+            <SpotlightButton 
               onClick={scrollPrev}
               className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button 
+            </SpotlightButton>
+            <SpotlightButton 
               onClick={scrollNext}
               className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronRight className="w-5 h-5" />
-            </button>
+            </SpotlightButton>
           </div>
-          <button 
+          <SpotlightButton 
             onClick={() => setIsModalOpen(true)}
             className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 transition-colors text-sm flex items-center gap-2"
           >
             {dict.education.viewFull}
             <ExternalLink className="w-4 h-4" />
-          </button>
+          </SpotlightButton>
         </div>
       </div>
 
@@ -198,7 +200,7 @@ export function EducationSection({ dict }: EducationSectionProps) {
               key={edu.id}
               className="flex-[0_0_80%] md:flex-[0_0_40%] lg:flex-[0_0_40%] min-w-0"
             >
-              <div className="glass p-8 rounded-2xl border-t border-purple-500/20 hover:border-purple-500/50 transition-colors h-full flex flex-col">
+              <SpotlightCard className="glass p-8 rounded-2xl border-t border-purple-500/20 hover:border-purple-500/50 transition-colors h-full flex flex-col">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-purple-500/10 rounded-xl text-purple-400">
                     <GraduationCap className="w-6 h-6" />
@@ -223,7 +225,7 @@ export function EducationSection({ dict }: EducationSectionProps) {
                   <Calendar className="w-4 h-4" />
                   {edu.period}
                 </div>
-              </div>
+              </SpotlightCard>
             </div>
           ))}
         </div>

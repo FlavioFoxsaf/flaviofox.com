@@ -8,6 +8,8 @@ import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
 import { ExternalLink, Award, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
+import { SpotlightButton } from '@/components/ui/SpotlightButton';
+import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
 interface CertificationsSectionProps {
   dict: Dictionary;
@@ -180,25 +182,26 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
         
         <div className="flex items-center gap-4">
           <div className="flex gap-2">
-            <button 
+            <SpotlightButton 
               onClick={scrollPrev}
               className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button 
+            </SpotlightButton>
+            <SpotlightButton 
               onClick={scrollNext}
               className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronRight className="w-5 h-5" />
-            </button>
+            </SpotlightButton>
           </div>
-          <button 
+          <SpotlightButton 
             onClick={() => setIsAllModalOpen(true)}
-            className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 transition-colors text-sm"
+            className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 transition-colors text-sm flex items-center gap-2"
           >
             {dict.certifications.viewAll}
-          </button>
+            <ExternalLink className="w-4 h-4" />
+          </SpotlightButton>
         </div>
       </div>
 
@@ -209,8 +212,8 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
               key={cert.id} 
               className="flex-[0_0_80%] md:flex-[0_0_40%] lg:flex-[0_0_28%] min-w-0"
             >
-              <div 
-                className="glass p-6 rounded-2xl h-full flex flex-col border border-white/5 hover:border-green-500/30 transition-colors group relative overflow-hidden cursor-pointer"
+              <SpotlightCard 
+                className="glass p-6 rounded-2xl h-full flex flex-col border border-white/5 hover:border-green-500/30 transition-colors group cursor-pointer"
                 onClick={() => setSelectedCert(cert.id)}
               >
                 <div className="flex justify-between items-start mb-6">
@@ -233,7 +236,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
                 <div className="text-xs text-gray-500 font-mono mt-auto pt-4">
                   {dict.certifications.issued}: {cert.date}
                 </div>
-              </div>
+              </SpotlightCard>
             </div>
           ))}
         </div>
@@ -242,27 +245,29 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
       <Modal isOpen={isAllModalOpen} onClose={() => setIsAllModalOpen(false)} title={dict.certifications.title}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           {certifications.map((cert) => (
-            <div 
+            <SpotlightCard 
               key={cert.id} 
               onClick={() => {
                 setIsAllModalOpen(false);
-                setTimeout(() => setSelectedCert(cert.id), 300); // Wait for modal close animation
+                setTimeout(() => setSelectedCert(cert.id), 300);
               }}
-              className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4 cursor-pointer hover:bg-white/10 transition-colors"
+              className="glass p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-green-500/30 transition-colors cursor-pointer group"
             >
-              <div className="text-3xl">
-                {cert.icon.startsWith('/') ? (
-                  <img src={cert.icon} alt="" className="w-[1em] h-[1em] object-contain" />
-                ) : (
-                  cert.icon
-                )}
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-white/5 rounded-lg text-2xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                  {cert.icon.startsWith('/') ? (
+                    <img src={cert.icon} alt="" className="w-[1em] h-[1em] object-contain" />
+                  ) : (
+                    cert.icon
+                  )}
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white group-hover:text-green-400 transition-colors">{cert.name}</h4>
+                  <div className="text-xs text-gray-400">{cert.issuer}</div>
+                </div>
               </div>
-              <div>
-                <h4 className="text-white font-bold text-sm">{cert.name}</h4>
-                <div className="text-gray-400 text-xs mt-1">{cert.issuer}</div>
-                <div className="text-gray-500 text-xs mt-2">{cert.date}</div>
-              </div>
-            </div>
+              <ChevronRight className="w-4 h-4 text-gray-500 group-hover:text-green-500 transition-colors" />
+            </SpotlightCard>
           ))}
         </div>
       </Modal>
@@ -318,19 +323,17 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
 
               {cert.url ? (
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <a
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <SpotlightButton
+                    onClick={() => window.open(cert.url, '_blank')}
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-green-500/20 text-white font-medium rounded-lg transition-colors w-full sm:w-auto hover:text-green-300 border border-transparent hover:border-green-500/30"
                   >
                     <ExternalLink className="w-4 h-4" />
                     {dict.certifications.viewCertificate}
-                  </a>
+                  </SpotlightButton>
                 </div>
               ) : (
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <button
+                  <SpotlightButton
                     onClick={() => {
                       const toast = document.createElement('div');
                       toast.className = 'fixed bottom-10 left-1/2 -translate-x-1/2 z-[150] px-6 py-3 rounded-full glass-strong border border-white/10 text-white font-medium shadow-lg flex items-center gap-2 text-sm text-center w-[90%] max-w-sm';
@@ -346,7 +349,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
                   >
                     <ExternalLink className="w-4 h-4 opacity-50" />
                     {dict.certifications.viewCertificate}
-                  </button>
+                  </SpotlightButton>
                 </div>
               )}
             </div>

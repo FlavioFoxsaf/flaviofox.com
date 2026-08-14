@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Dictionary } from '@/i18n/dictionaries';
 import { ChevronDown } from 'lucide-react';
+import { SpotlightButton } from '@/components/ui/SpotlightButton';
 
 interface HeroSectionProps {
   dict: Dictionary;
@@ -63,22 +64,22 @@ export function HeroSection({ dict }: HeroSectionProps) {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button
+            <SpotlightButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-orange-600 hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
               {dict.hero.primaryCta}
-            </motion.button>
-            <motion.button
+            </SpotlightButton>
+            <SpotlightButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 glass text-white font-semibold rounded-full border border-white/10 hover:bg-orange-500/10 hover:border-orange-500/50 hover:text-orange-50 hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-300 w-full sm:w-auto"
             >
               {dict.hero.secondaryCta}
-            </motion.button>
+            </SpotlightButton>
           </div>
         </motion.div>
       </div>

@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
 import { ExternalLink, MonitorPlay } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
 interface ProjectsSectionProps {
   dict: Dictionary;
@@ -28,7 +29,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <motion.div
+          <SpotlightCard
             key={project.id}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +75,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </SpotlightCard>
         ))}
       </div>
 

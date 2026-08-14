@@ -6,6 +6,7 @@ import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 import { Modal } from '@/components/ui/Modal';
 import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
 interface ExperienceSectionProps {
   dict: Dictionary;
@@ -39,7 +40,7 @@ export function ExperienceSection({ dict }: ExperienceSectionProps) {
             <div className="absolute -left-[41px] md:-left-[41px] top-1 w-5 h-5 rounded-full bg-[#0a0a0c] border-2 border-blue-500 hidden md:block" />
             <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-blue-500 md:hidden" />
 
-            <div className="glass p-6 md:p-8 rounded-2xl hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => setSelectedExp(exp.id)}>
+            <SpotlightCard className="glass p-6 md:p-8 rounded-2xl hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => setSelectedExp(exp.id)}>
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
@@ -73,7 +74,7 @@ export function ExperienceSection({ dict }: ExperienceSectionProps) {
                 {dict.experience.viewMore}
                 <ExternalLink className="w-4 h-4" />
               </button>
-            </div>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>
