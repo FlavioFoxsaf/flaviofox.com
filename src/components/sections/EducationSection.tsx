@@ -29,7 +29,9 @@ export function EducationSection({ dict }: EducationSectionProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const rewindTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isRewindingRef = useRef(false);
+  const isInteractingRef = useRef(false);
 
   const resetTimer = (delay: number) => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -50,56 +52,80 @@ export function EducationSection({ dict }: EducationSectionProps) {
   };
 
   const handleManualInteraction = () => {
+    if (rewindTimerRef.current) clearTimeout(rewindTimerRef.current);
+    isRewindingRef.current = false;
+    isInteractingRef.current = true;
     stopAutoScroll();
-    if (isInView && !isModalOpen) {
-      resetTimer(6000);
-    }
+    
+    setTimeout(() => {
+      isInteractingRef.current = false;
+      if (isInView && !isModalOpen) {
+        resetTimer(6000);
+      }
+    }, 100);
   };
 
   useEffect(() => {
     if (!emblaApi) return;
 
     if (isInView && !isModalOpen) {
+      if (rewindTimerRef.current) clearTimeout(rewindTimerRef.current);
+      isRewindingRef.current = false;
       stopAutoScroll();
       resetTimer(6000);
     } else {
+      if (rewindTimerRef.current) clearTimeout(rewindTimerRef.current);
+      isRewindingRef.current = false;
       stopAutoScroll();
     }
 
     const onPointerDown = () => {
+      isInteractingRef.current = true;
+      if (rewindTimerRef.current) clearTimeout(rewindTimerRef.current);
+      isRewindingRef.current = false;
       stopAutoScroll();
     };
 
     const onPointerUp = () => {
+      isInteractingRef.current = false;
       if (isInView && !isModalOpen) resetTimer(6000);
     };
 
-    const checkEnd = () => {
-      if (!emblaApi) return;
+    const checkEnd = (isSettled: boolean = false) => {
+      if (!emblaApi || isRewindingRef.current || isInteractingRef.current) return;
+      
       const progress = emblaApi.scrollProgress();
-      if ((progress >= 0.999 || !emblaApi.canScrollNext()) && !isRewindingRef.current) {
+      
+      // If it's still scrolling, only trigger at the absolute boundary (0.999) to avoid stopping early.
+      // If it has already settled (stopped), we can safely trigger if it's at the last snap point.
+      const isAtEnd = isSettled 
+        ? (!emblaApi.canScrollNext() || progress >= 0.99)
+        : (progress >= 0.999);
+
+      if (isAtEnd) {
         isRewindingRef.current = true;
         stopAutoScroll();
         
-        timerRef.current = setTimeout(() => {
+        // Wait 7 seconds so the user can fully read the last card
+        rewindTimerRef.current = setTimeout(() => {
+          if (!emblaApi) return;
           emblaApi.scrollTo(0);
-        }, 3000);
+          
+          // Wait for the scroll back animation to finish
+          rewindTimerRef.current = setTimeout(() => {
+            isRewindingRef.current = false;
+            if (isInView && !isModalOpen) resetTimer(1000);
+          }, 1500);
+        }, 7000);
       }
     };
 
     const onScroll = () => {
-      checkEnd();
+      if (!isRewindingRef.current && !isInteractingRef.current) checkEnd(false);
     };
 
     const onSettle = () => {
-      if (!emblaApi) return;
-      const progress = emblaApi.scrollProgress();
-      if (isRewindingRef.current && (progress <= 0.001 || !emblaApi.canScrollPrev())) {
-        isRewindingRef.current = false;
-        if (isInView && !isModalOpen) resetTimer(6000);
-      } else {
-        checkEnd();
-      }
+      if (!isRewindingRef.current && !isInteractingRef.current) checkEnd(true);
     };
 
     emblaApi.on('pointerDown', onPointerDown);
@@ -113,6 +139,7 @@ export function EducationSection({ dict }: EducationSectionProps) {
       emblaApi.off('scroll', onScroll);
       emblaApi.off('settle', onSettle);
       if (timerRef.current) clearTimeout(timerRef.current);
+      if (rewindTimerRef.current) clearTimeout(rewindTimerRef.current);
     };
   }, [emblaApi, isInView, isModalOpen]);
 

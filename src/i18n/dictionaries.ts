@@ -282,7 +282,7 @@ export const dictionaries = {
         },
         {
           id: 14,
-          name: 'AWS SBG Co-Lider',
+          name: 'AWS SBG Co-Leader',
           issuer: 'AWS Student Builders Group',
           hours: 'Continuous',
           date: '2026',
