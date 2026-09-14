@@ -268,13 +268,13 @@ export default function BioPage() {
             {lang === 'PT' ? (
               <>
                 <p className="mb-3">Entusiasta de tecnologia, sempre fui movido pela curiosidade de entender como os processos funcionam e pela vontade de fazer acontecer.</p>
-                <p className="mb-3">Uno capacidade de liderança, visão de negócios e comunicação fluida à bagagem técnica, cursando Ciência de Dados e Inteligência Artificial no SENAI CIMATEC, Engenharia de Software e Análise e Desenvolvimento de Sistemas.</p>
+                <p className="mb-3">Uno capacidade de liderança, visão de negócios e comunicação fluida à bagagem técnica, cursando Ciência de Dados e Inteligência Artificial no SENAI CIMATEC e Análise e Desenvolvimento de Sistemas.</p>
                 <p>Focado em Computação em Nuvem (AWS), traduzo cenários complexos em soluções ágeis e eficientes, atuando como ponte entre os desafios tecnológicos e as necessidades reais do negócio.</p>
               </>
             ) : (
               <>
                 <p className="mb-3">Technology enthusiast, always driven by the curiosity to understand how processes work and the desire to make things happen.</p>
-                <p className="mb-3">I combine leadership skills, business vision, and fluent communication with my technical background, currently studying Data Science and Artificial Intelligence at SENAI CIMATEC, Software Engineering, and Systems Analysis and Development.</p>
+                <p className="mb-3">I combine leadership skills, business vision, and fluent communication with my technical background, currently studying Data Science and Artificial Intelligence at SENAI CIMATEC and Systems Analysis and Development.</p>
                 <p>Focused on Cloud Computing (AWS), I translate complex scenarios into agile and efficient solutions, acting as a bridge between technological challenges and real business needs.</p>
               </>
             )}

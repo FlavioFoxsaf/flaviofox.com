@@ -52,7 +52,7 @@ export function AboutSection({ dict }: AboutSectionProps) {
               onClick={() => document.getElementById('education')?.scrollIntoView({ behavior: 'smooth' })}
               className="glass p-6 rounded-2xl cursor-pointer hover:bg-white/5 transition-colors group"
             >
-              <div className="text-3xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors relative z-10">{dict.about.stats?.education.count || '3'}</div>
+              <div className="text-3xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors relative z-10">{dict.about.stats?.education.count || '2'}</div>
               <div className="text-sm text-gray-400 relative z-10">{dict.about.stats?.education.label || 'Higher Education Degrees'}</div>
             </SpotlightCard>
             <SpotlightCard 
