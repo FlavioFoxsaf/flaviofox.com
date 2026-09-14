@@ -14,8 +14,8 @@ export const dictionaries = {
       contact: 'Contact',
     },
     hero: {
-      title: 'Software Engineering | Data Science & AI | Systems Analysis & Development',
-      subtitle: 'AWS Student Builders Group Co-Leader | Leadership & Team Management',
+      title: 'Data Science & AI | Systems Analysis & Development',
+      subtitle: 'AWS Student Builder Groups Co-Leader | Leadership & Team Management',
       primaryCta: 'Skills',
       secondaryCta: 'Contact',
     },
@@ -376,8 +376,8 @@ export const dictionaries = {
       contact: 'Contato',
     },
     hero: {
-      title: 'Engenharia de Software | Ciência de Dados & IA | Análise e Desenvolvimento de Sistemas',
-      subtitle: 'Co-Líder do AWS Student Builders Group | Liderança e Gestão de Equipes',
+      title: 'Ciência de Dados & IA | Análise e Desenvolvimento de Sistemas',
+      subtitle: 'AWS Student Builder Groups Co-Leader | Liderança e Gestão de Equipes',
       primaryCta: 'Habilidades',
       secondaryCta: 'Contato',
     },

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Flavio Fox" }],
   openGraph: {
     title: "Flavio Fox",
-    description: "Software Engineering | Data Science & AI | Systems Analysis & Development",
+    description: "Data Science & AI | Systems Analysis & Development",
     url: "https://flaviofox.com",
     siteName: "Flavio Fox Portfolio",
     images: [

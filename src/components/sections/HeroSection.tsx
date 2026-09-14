@@ -53,7 +53,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
                 <span key={index} className="flex items-center">
                   <span className="text-center lg:whitespace-nowrap">{part.trim()}</span>
                   {index < array.length - 1 && (
-                    <span className="hidden lg:inline-block text-orange-500/50 mx-3">|</span>
+                    <span className="hidden lg:inline-block text-gray-200 mx-3">|</span>
                   )}
                 </span>
               ))}
