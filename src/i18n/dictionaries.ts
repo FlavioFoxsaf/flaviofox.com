@@ -54,6 +54,16 @@ export const dictionaries = {
           skills: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core', 'Team Management', 'Strategic Thinking', 'Public Speaking', 'Interpersonal Communication', 'Project Management']
         },
         {
+          id: 3,
+          role: 'Web Developer & Digital Solutions',
+          company: 'Consultancy',
+          period: '2025 - present',
+          location: 'Salvador, BA',
+          shortDesc: 'Consultancy in developing bespoke digital solutions, handling the full lifecycle of web products and applications with a focus on performance, SEO, and usability.',
+          fullDesc: 'Providing consultancy in the development and structuring of bespoke digital solutions, I carry out the end-to-end lifecycle execution of web products and applications. I lead everything from strategic immersion and requirements gathering directly with clients to the delivery of institutional landing pages, portfolios, and biographical pages with a rigorous focus on performance and usability. On the technical layer, I develop modular and scalable front-ends integrated with modern APIs, in addition to managing the complete deployment infrastructure, covering domain purchasing, DNS configuration, hosting, and version control with Git and GitHub. This role consolidates a personalized delivery that combines clean code, operational autonomy, and strong alignment with each client\'s digital presence.',
+          skills: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Git', 'GitHub', 'DNS Management', 'Requirements Gathering', 'UI/UX & Usability']
+        },
+        {
           id: 1,
           role: 'Co-Owner',
           company: 'FLY Social Midia',
@@ -337,11 +347,12 @@ export const dictionaries = {
         {
           id: 2,
           title: 'Financial Dashboard',
-          category: 'Frontend',
-          shortDesc: 'Real-time data visualization dashboard for financial metrics.',
-          fullDesc: 'Created an interactive dashboard for visualizing complex financial data sets. Integrated websockets for real-time updates and implemented complex chart components that are both performant and accessible.',
+          category: 'Full Stack',
+          shortDesc: 'Full Stack financial platform developed to transform raw market data into strategic intelligence.',
+          fullDesc: 'Full Stack financial platform developed to transform raw market data into strategic intelligence and simplify decision-making for investors. The solution centralizes the monitoring of multiple assets in real time, automates established valuation methodologies, and provides long-term wealth planning simulators. The project prioritizes high computational performance, intuitive navigation, and dynamic visualization of time series, delivering a fluid, precise analytical experience focused on identifying value asymmetries in the market.',
           image: 'gradient-to-br from-emerald-900 to-teal-900',
-          tags: ['React', 'D3.js', 'WebSockets', 'Framer Motion'],
+          imageUrl: '/Preview-Projetos/Preview-Vertice.png',
+          tags: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'PostCSS', 'REST APIs', 'Git', 'GitHub', 'UI/UX & Usability'],
         },
         {
           id: 3,
@@ -436,6 +447,16 @@ export const dictionaries = {
           shortDesc: 'Co-Leader responsável pela gestão operacional integrada, acompanhamento das lideranças de cada setor, atuação como palestrante e condução de iniciativas de expansão externa.',
           fullDesc: 'Minha atuação como Vice-Capitão do AWS Student Builder Group combina gestão executiva e preparação direcionada para o mercado de tecnologia. Atuo na liderança geral da comunidade, sendo responsável pela reestruturação e pelo posicionamento de marca do grupo, além de garantir o alinhamento operacional através do acompanhamento direto e direcionamento dos líderes de cada setor. Utilizando minha comunicação e oratória, atuo na linha de frente como palestrante, disseminando conhecimento técnico e institucional para engajar os membros e consolidar a relevância do grupo. Atualmente, assumo a responsabilidade estratégica de conduzir a expansão externa através de novos projetos, conectando o grupo às demandas do mercado. Essa imersão em liderança e execução me proporciona um sólido domínio prático em Cloud Computing e na cultura AWS, me capacitando de forma competitiva para os desafios reais da indústria de nuvem.',
           skills: ['Amazon S3', 'Amazon EC2', 'Amazon VPC', 'AWS Lambda', 'Amazon DynamoDB', 'AWS IoT Core', 'Gestão de Equipes', 'Pensamento Estratégico', 'Oratória', 'Comunicação Interpessoal', 'Gestão de Projetos']
+        },
+        {
+          id: 3,
+          role: 'Desenvolvedor Web & Soluções Digitais',
+          company: 'Consultoria',
+          period: '2025 - presente',
+          location: 'Salvador, BA',
+          shortDesc: 'Consultoria no desenvolvimento de soluções digitais sob medida, atuando em todo o ciclo de vida de produtos e aplicações web com foco em performance, SEO e usabilidade.',
+          fullDesc: 'Prestando consultoria no desenvolvimento e estruturação de soluções digitais sob medida, realizo a execução do ciclo de vida ponta a ponta de produtos e aplicações web. Conduzo desde a imersão estratégica e o levantamento de requisitos diretamente com clientes até a entrega de landing pages institucionais, portfólios e páginas biográficas com foco rigoroso em performance e usabilidade. Na camada técnica, desenvolvo front-ends modulares e escaláveis integrados a APIs modernas, além de gerenciar a infraestrutura completa de deploy, abrangendo compra de domínios, configuração de DNS, hospedagem e controle de versão com Git e GitHub. Essa atuação consolida uma entrega personalizada que alia código limpo, autonomia operacional e forte alinhamento com a presença digital de cada cliente.',
+          skills: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Git', 'GitHub', 'Gerenciamento de DNS', 'Levantamento de Requisitos', 'UI/UX & Usabilidade']
         },
         {
           id: 1,
@@ -720,12 +741,13 @@ export const dictionaries = {
         },
         {
           id: 2,
-          title: 'Financial Dashboard',
-          category: 'Frontend',
-          shortDesc: 'Dashboard de visualização de dados em tempo real para métricas financeiras.',
-          fullDesc: 'Dashboard interativo criado para visualizar conjuntos complexos de dados financeiros. Integração com websockets para atualizações em tempo real e implementação de componentes de gráficos complexos, performáticos e acessíveis.',
+          title: 'Dashboard Financeiro',
+          category: 'Full Stack',
+          shortDesc: 'Plataforma financeira Full Stack desenvolvida para transformar dados brutos de mercado em inteligência estratégica.',
+          fullDesc: 'Plataforma financeira Full Stack desenvolvida para transformar dados brutos de mercado em inteligência estratégica e simplificar a tomada de decisão para investidores. A solução centraliza o monitoramento de múltiplos ativos em tempo real, automatiza metodologias consagradas de valuation e disponibiliza simuladores de planejamento patrimonial de longo prazo. O projeto prioriza alta performance computacional, navegação intuitiva e visualização dinâmica de séries temporais, entregando uma experiência analítica fluida, precisa e focada na identificação de assimetrias de valor no mercado.',
           image: 'gradient-to-br from-emerald-900 to-teal-900',
-          tags: ['React', 'D3.js', 'WebSockets', 'Framer Motion'],
+          imageUrl: '/Preview-Projetos/Preview-Vertice.png',
+          tags: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'PostCSS', 'REST APIs', 'Git', 'GitHub', 'UI/UX & Usabilidade'],
         },
         {
           id: 3,

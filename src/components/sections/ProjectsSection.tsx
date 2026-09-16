@@ -41,7 +41,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
             {/* Project Image Placeholder */}
             <div className={`w-full aspect-video ${!project.imageUrl ? 'bg-gradient-to-br from-gray-900 to-purple-950 flex items-center justify-center' : 'bg-black'} relative overflow-hidden`}>
               {project.imageUrl ? (
-                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                <img src={project.imageUrl} alt={project.title} className="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               ) : (
                 <span className="text-white/30 text-sm font-bold tracking-widest uppercase relative z-10 px-4 text-center">
                   {dict.projects.inDevelopment}
@@ -87,7 +87,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
             <div className="flex flex-col h-full pt-8">
               <div className={`w-full aspect-video rounded-xl overflow-hidden ${!project.imageUrl ? 'bg-gradient-to-br from-gray-900 to-purple-950' : 'bg-black'} mb-8 flex items-center justify-center relative`}>
                 {project.imageUrl ? (
-                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
+                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover object-top" />
                 ) : (
                   <span className="text-white/30 text-xl font-medium tracking-widest uppercase">
                     {dict.projects.inDevelopment}
@@ -113,7 +113,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
                       aria-label="View Source"
                     >
                       <FaGithub className="w-5 h-5" />
-                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                      <span className="absolute -top-10 right-0 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                         {dict.projects.viewCode}
                       </span>
                     </a>
@@ -127,7 +127,7 @@ export function ProjectsSection({ dict }: ProjectsSectionProps) {
                       aria-label="Live Demo"
                     >
                       <MonitorPlay className="w-5 h-5" />
-                      <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                      <span className="absolute -top-10 right-0 px-2 py-1 bg-gray-900 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                         {dict.projects.viewDemo}
                       </span>
                     </a>
