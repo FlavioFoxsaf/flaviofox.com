@@ -310,7 +310,7 @@ export function CertificationsSection({ dict }: CertificationsSectionProps) {
 
               {cert.image && (
                 <div className="mb-6 relative w-full rounded-xl overflow-hidden border border-white/10 bg-white/5 flex items-center justify-center p-4">
-                  <img src={cert.image} alt={cert.name} className="object-contain w-full h-auto rounded-lg shadow-lg" />
+                  <img src={cert.image} alt={cert.name} className="object-contain max-h-[360px] w-auto max-w-full rounded-lg shadow-lg" />
                 </div>
               )}
 

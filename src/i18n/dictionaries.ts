@@ -31,7 +31,7 @@ export const dictionaries = {
       readMore: 'Learn more',
       stats: {
         education: { count: '2', label: 'Higher Education Degrees' },
-        certifications: { count: '14', label: 'Certifications' }
+        certifications: { count: '16', label: 'Certifications' }
       }
     },
     social: {
@@ -290,6 +290,28 @@ export const dictionaries = {
           icon: '/Badges/aws-sbg-core-team-member-badge.png',
           desc: 'My participation as Co-leader of the AWS Student Builder Group at SENAI CIMATEC has strengthened my background in community management and project leadership. Being at the helm of this group was fundamental to fostering a culture of innovation on campus, encouraging the development of technical cloud skills and the creation of real solutions among students. Beyond the technical aspect, this journey has added valuable practical insight into engagement, organizing initiatives, and people leadership.',
           url: 'https://www.credly.com/badges/2c5003e5-eced-45f2-b925-5bb186ebe50b/public_url'
+        },
+        {
+          id: 15,
+          name: 'Machine Learning Foundations',
+          issuer: 'AWS',
+          hours: '20h',
+          date: '2026',
+          image: '/Badges/AWS_ML_Foundations.png',
+          icon: '/Badges/AWS_ML_Foundations.png',
+          desc: 'The completion of the AWS Machine Learning Foundations course strengthened my technical background in Artificial Intelligence and cloud computing. Delving into these fundamentals was essential for understanding how to design, train, and deploy predictive models aimed at solving real-world problems. More than algorithmic theory, this certification added valuable practical insight into the entire data lifecycle, preparing me to build and scale intelligent solutions within the AWS ecosystem and drive technological innovation.',
+          url: 'https://www.credly.com/badges/0c7beef7-7b9a-4418-af4d-0bf7e4b945b8'
+        },
+        {
+          id: 16,
+          name: 'Cloud Foundations',
+          issuer: 'AWS',
+          hours: '20h',
+          date: '2026',
+          image: '/Badges/AWS-Cloud-Foundations.png',
+          icon: '/Badges/AWS-Cloud-Foundations.png',
+          desc: 'The completion of the AWS Cloud Foundations course strengthened my technical foundation in cloud computing architecture and essential services. Delving into these fundamentals was essential for understanding how to design, support, and operate scalable and cost-optimized infrastructures aimed at solving real-world business challenges. More than knowing the platform\'s tools, this certification added valuable practical insight into planning and deploying virtual environments, preparing me to support cloud migration journeys and drive digital transformation projects within the AWS ecosystem.',
+          url: null
         }
       ]
     },
@@ -393,7 +415,7 @@ export const dictionaries = {
       readMore: 'Saiba mais',
       stats: {
         education: { count: '2', label: 'Graduações de Ensino Superior' },
-        certifications: { count: '14', label: 'Certificações' }
+        certifications: { count: '16', label: 'Certificações' }
       }
     },
     social: {
@@ -652,6 +674,28 @@ export const dictionaries = {
           icon: '/Badges/aws-sbg-core-team-member-badge.png',
           desc: 'A minha participação como Co-líder do AWS Student Builder Group no SENAI CIMATEC fortaleceu minha bagagem em gestão de comunidades e liderança de projetos. Estar na liderança desse grupo foi fundamental para fomentar a cultura de inovação no campus, incentivando o desenvolvimento de habilidades técnicas em nuvem e a criação de soluções reais entre os estudantes. Mais do que o aspecto técnico, essa trajetória agregou uma visão prática valiosa sobre engajamento, organização de iniciativas e liderança de pessoas.',
           url: 'https://www.credly.com/badges/2c5003e5-eced-45f2-b925-5bb186ebe50b/public_url'
+        },
+        {
+          id: 15,
+          name: 'Machine Learning Foundations',
+          issuer: 'AWS',
+          hours: '20h',
+          date: '2026',
+          image: '/Badges/AWS_ML_Foundations.png',
+          icon: '/Badges/AWS_ML_Foundations.png',
+          desc: 'A conclusão do curso AWS Machine Learning Foundations fortaleceu minha bagagem técnica em Inteligência Artificial e computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, treinar e implementar modelos preditivos voltados para a resolução de problemas do mundo real. Mais do que a teoria dos algoritmos, essa certificação agregou uma visão prática valiosa sobre todo o ciclo de vida dos dados, me preparando para desenvolver e escalar soluções inteligentes dentro do ecossistema da AWS e impulsionar projetos de inovação tecnológica.',
+          url: 'https://www.credly.com/badges/0c7beef7-7b9a-4418-af4d-0bf7e4b945b8'
+        },
+        {
+          id: 16,
+          name: 'Cloud Foundations',
+          issuer: 'AWS',
+          hours: '20h',
+          date: '2026',
+          image: '/Badges/AWS-Cloud-Foundations.png',
+          icon: '/Badges/AWS-Cloud-Foundations.png',
+          desc: 'A conclusão do curso AWS Cloud Foundations fortaleceu minha base técnica na arquitetura e nos serviços essenciais de computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, dar suporte e operar infraestruturas escaláveis e otimizadas em custos, voltadas para a resolução de desafios reais de negócios. Mais do que conhecer as ferramentas da plataforma, essa certificação agregou uma visão prática valiosa sobre o planejamento e a implementação de ambientes virtuais, me preparando para apoiar jornadas de migração para a nuvem e impulsionar projetos de transformação digital dentro do ecossistema da AWS.',
+          url: null
         }
       ]
     },
