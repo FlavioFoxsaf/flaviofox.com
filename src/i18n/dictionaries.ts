@@ -59,7 +59,7 @@ export const dictionaries = {
           company: 'Consultancy',
           period: '2025 - present',
           location: 'Salvador, BA',
-          shortDesc: 'Consultancy in developing bespoke digital solutions, handling the full lifecycle of web products and applications with a focus on performance, SEO, and usability.',
+          shortDesc: 'Full Stack Consultant and Developer responsible for the end-to-end lifecycle of bespoke digital products, from strategic requirements alignment to technical development and complete deployment infrastructure management.',
           fullDesc: 'Providing consultancy in the development and structuring of bespoke digital solutions, I carry out the end-to-end lifecycle execution of web products and applications. I lead everything from strategic immersion and requirements gathering directly with clients to the delivery of institutional landing pages, portfolios, and biographical pages with a rigorous focus on performance and usability. On the technical layer, I develop modular and scalable front-ends integrated with modern APIs, in addition to managing the complete deployment infrastructure, covering domain purchasing, DNS configuration, hosting, and version control with Git and GitHub. This role consolidates a personalized delivery that combines clean code, operational autonomy, and strong alignment with each client\'s digital presence.',
           skills: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Git', 'GitHub', 'DNS Management', 'Requirements Gathering', 'UI/UX & Usability']
         },
@@ -454,7 +454,7 @@ export const dictionaries = {
           company: 'Consultoria',
           period: '2025 - presente',
           location: 'Salvador, BA',
-          shortDesc: 'Consultoria no desenvolvimento de soluções digitais sob medida, atuando em todo o ciclo de vida de produtos e aplicações web com foco em performance, SEO e usabilidade.',
+          shortDesc: 'Consultor e Desenvolvedor Full Stack responsável pelo ciclo ponta a ponta de produtos digitais sob medida, desde o alinhamento estratégico de requisitos até o desenvolvimento técnico e a gestão completa de infraestrutura de deploy.',
           fullDesc: 'Prestando consultoria no desenvolvimento e estruturação de soluções digitais sob medida, realizo a execução do ciclo de vida ponta a ponta de produtos e aplicações web. Conduzo desde a imersão estratégica e o levantamento de requisitos diretamente com clientes até a entrega de landing pages institucionais, portfólios e páginas biográficas com foco rigoroso em performance e usabilidade. Na camada técnica, desenvolvo front-ends modulares e escaláveis integrados a APIs modernas, além de gerenciar a infraestrutura completa de deploy, abrangendo compra de domínios, configuração de DNS, hospedagem e controle de versão com Git e GitHub. Essa atuação consolida uma entrega personalizada que alia código limpo, autonomia operacional e forte alinhamento com a presença digital de cada cliente.',
           skills: ['Next.js', 'React', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'Git', 'GitHub', 'Gerenciamento de DNS', 'Levantamento de Requisitos', 'UI/UX & Usabilidade']
         },
