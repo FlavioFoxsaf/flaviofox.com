@@ -352,6 +352,7 @@ export const dictionaries = {
           fullDesc: 'Full Stack financial platform developed to transform raw market data into strategic intelligence and simplify decision-making for investors. The solution centralizes the monitoring of multiple assets in real time, automates established valuation methodologies, and provides long-term wealth planning simulators. The project prioritizes high computational performance, intuitive navigation, and dynamic visualization of time series, delivering a fluid, precise analytical experience focused on identifying value asymmetries in the market.',
           image: 'gradient-to-br from-emerald-900 to-teal-900',
           imageUrl: '/Preview-Projetos/Preview-Vertice.png',
+          demoUrl: 'https://vertice.cash',
           tags: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'PostCSS', 'REST APIs', 'Git', 'GitHub', 'UI/UX & Usability'],
         },
         {
@@ -747,6 +748,7 @@ export const dictionaries = {
           fullDesc: 'Plataforma financeira Full Stack desenvolvida para transformar dados brutos de mercado em inteligência estratégica e simplificar a tomada de decisão para investidores. A solução centraliza o monitoramento de múltiplos ativos em tempo real, automatiza metodologias consagradas de valuation e disponibiliza simuladores de planejamento patrimonial de longo prazo. O projeto prioriza alta performance computacional, navegação intuitiva e visualização dinâmica de séries temporais, entregando uma experiência analítica fluida, precisa e focada na identificação de assimetrias de valor no mercado.',
           image: 'gradient-to-br from-emerald-900 to-teal-900',
           imageUrl: '/Preview-Projetos/Preview-Vertice.png',
+          demoUrl: 'https://vertice.cash',
           tags: ['Next.js', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'PostCSS', 'REST APIs', 'Git', 'GitHub', 'UI/UX & Usabilidade'],
         },
         {

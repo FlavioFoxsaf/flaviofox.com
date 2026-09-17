@@ -256,7 +256,7 @@ export default function BioPage() {
             transition={{ delay: 0.5 }}
             className="text-[11px] sm:text-xs md:text-sm whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 text-center font-medium"
           >
-            Software Engineering | Data Science & AI | Cloud Computing
+            Cloud Data Engineering | Data Science & Artificial Intelligence
           </motion.p>
 
           <motion.div 
