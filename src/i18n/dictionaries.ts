@@ -321,7 +321,7 @@ export const dictionaries = {
           image: '/Badges/AWS-Cloud-Foundations.png',
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'The completion of the AWS Cloud Foundations course strengthened my technical foundation in cloud computing architecture and essential services. Delving into these fundamentals was essential for understanding how to design, support, and operate scalable and cost-optimized infrastructures aimed at solving real-world business challenges. More than knowing the platform\'s tools, this certification added valuable practical insight into planning and deploying virtual environments, preparing me to support cloud migration journeys and drive digital transformation projects within the AWS ecosystem.',
-          url: null
+          url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
         }
       ]
     },
@@ -717,7 +717,7 @@ export const dictionaries = {
           image: '/Badges/AWS-Cloud-Foundations.png',
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'A conclusão do curso AWS Cloud Foundations fortaleceu minha base técnica na arquitetura e nos serviços essenciais de computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, dar suporte e operar infraestruturas escaláveis e otimizadas em custos, voltadas para a resolução de desafios reais de negócios. Mais do que conhecer as ferramentas da plataforma, essa certificação agregou uma visão prática valiosa sobre o planejamento e a implementação de ambientes virtuais, me preparando para apoiar jornadas de migração para a nuvem e impulsionar projetos de transformação digital dentro do ecossistema da AWS.',
-          url: null
+          url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
         }
       ]
     },
