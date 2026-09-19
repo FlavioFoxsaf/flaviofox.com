@@ -307,7 +307,7 @@ export const dictionaries = {
           issuer: 'AWS',
           hours: '20h',
           date: '2026',
-          image: '/Badges/AWS_ML_Foundations.png',
+          image: '/certificados/ML-F.png',
           icon: '/Badges/AWS_ML_Foundations.png',
           desc: 'The completion of the AWS Machine Learning Foundations course strengthened my technical background in Artificial Intelligence and cloud computing. Delving into these fundamentals was essential for understanding how to design, train, and deploy predictive models aimed at solving real-world problems. More than algorithmic theory, this certification added valuable practical insight into the entire data lifecycle, preparing me to build and scale intelligent solutions within the AWS ecosystem and drive technological innovation.',
           url: 'https://www.credly.com/badges/0c7beef7-7b9a-4418-af4d-0bf7e4b945b8'
@@ -318,7 +318,7 @@ export const dictionaries = {
           issuer: 'AWS',
           hours: '20h',
           date: '2026',
-          image: '/Badges/AWS-Cloud-Foundations.png',
+          image: '/certificados/C-F.png',
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'The completion of the AWS Cloud Foundations course strengthened my technical foundation in cloud computing architecture and essential services. Delving into these fundamentals was essential for understanding how to design, support, and operate scalable and cost-optimized infrastructures aimed at solving real-world business challenges. More than knowing the platform\'s tools, this certification added valuable practical insight into planning and deploying virtual environments, preparing me to support cloud migration journeys and drive digital transformation projects within the AWS ecosystem.',
           url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
@@ -703,7 +703,7 @@ export const dictionaries = {
           issuer: 'AWS',
           hours: '20h',
           date: '2026',
-          image: '/Badges/AWS_ML_Foundations.png',
+          image: '/certificados/ML-F.png',
           icon: '/Badges/AWS_ML_Foundations.png',
           desc: 'A conclusão do curso AWS Machine Learning Foundations fortaleceu minha bagagem técnica em Inteligência Artificial e computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, treinar e implementar modelos preditivos voltados para a resolução de problemas do mundo real. Mais do que a teoria dos algoritmos, essa certificação agregou uma visão prática valiosa sobre todo o ciclo de vida dos dados, me preparando para desenvolver e escalar soluções inteligentes dentro do ecossistema da AWS e impulsionar projetos de inovação tecnológica.',
           url: 'https://www.credly.com/badges/0c7beef7-7b9a-4418-af4d-0bf7e4b945b8'
@@ -714,7 +714,7 @@ export const dictionaries = {
           issuer: 'AWS',
           hours: '20h',
           date: '2026',
-          image: '/Badges/AWS-Cloud-Foundations.png',
+          image: '/certificados/C-F.png',
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'A conclusão do curso AWS Cloud Foundations fortaleceu minha base técnica na arquitetura e nos serviços essenciais de computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, dar suporte e operar infraestruturas escaláveis e otimizadas em custos, voltadas para a resolução de desafios reais de negócios. Mais do que conhecer as ferramentas da plataforma, essa certificação agregou uma visão prática valiosa sobre o planejamento e a implementação de ambientes virtuais, me preparando para apoiar jornadas de migração para a nuvem e impulsionar projetos de transformação digital dentro do ecossistema da AWS.',
           url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
