@@ -31,7 +31,7 @@ export const dictionaries = {
       readMore: 'Learn more',
       stats: {
         education: { count: '2', label: 'Higher Education Degrees' },
-        certifications: { count: '16', label: 'Certifications' }
+        certifications: { count: '17', label: 'Certifications' }
       }
     },
     social: {
@@ -322,6 +322,17 @@ export const dictionaries = {
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'The completion of the AWS Cloud Foundations course strengthened my technical foundation in cloud computing architecture and essential services. Delving into these fundamentals was essential for understanding how to design, support, and operate scalable and cost-optimized infrastructures aimed at solving real-world business challenges. More than knowing the platform\'s tools, this certification added valuable practical insight into planning and deploying virtual environments, preparing me to support cloud migration journeys and drive digital transformation projects within the AWS ecosystem.',
           url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
+        },
+        {
+          id: 17,
+          name: 'Data Engineering',
+          issuer: 'AWS',
+          hours: '40h',
+          date: '2026',
+          image: '/certificados/Data-Engineering.png',
+          icon: '/Badges/Data-Engineering.png',
+          desc: 'The completion of the AWS Data Engineering course consolidated my technical foundation in the cloud data ecosystem, with a practical focus on pipeline development, data ingestion, and large-scale processing. Delving into these topics was essential for understanding how to structure robust, secure, and efficient data architectures, ensuring data integrity, governance, and availability to support business decision-making. More than mastering the platform\'s analytical and storage services, this training provided an end-to-end perspective on the data lifecycle in AWS, preparing me to design scalable analytical workflows and drive modern data-driven solutions.',
+          url: 'https://www.credly.com/badges/feff431e-940c-403a-b057-cca0b8332994'
         }
       ]
     },
@@ -427,7 +438,7 @@ export const dictionaries = {
       readMore: 'Saiba mais',
       stats: {
         education: { count: '2', label: 'Graduações de Ensino Superior' },
-        certifications: { count: '16', label: 'Certificações' }
+        certifications: { count: '17', label: 'Certificações' }
       }
     },
     social: {
@@ -718,6 +729,17 @@ export const dictionaries = {
           icon: '/Badges/AWS-Cloud-Foundations.png',
           desc: 'A conclusão do curso AWS Cloud Foundations fortaleceu minha base técnica na arquitetura e nos serviços essenciais de computação em nuvem. Aprofundar-me nesses fundamentos foi essencial para entender como projetar, dar suporte e operar infraestruturas escaláveis e otimizadas em custos, voltadas para a resolução de desafios reais de negócios. Mais do que conhecer as ferramentas da plataforma, essa certificação agregou uma visão prática valiosa sobre o planejamento e a implementação de ambientes virtuais, me preparando para apoiar jornadas de migração para a nuvem e impulsionar projetos de transformação digital dentro do ecossistema da AWS.',
           url: 'https://www.credly.com/earner/earned/badge/77e1be0a-37c0-4506-99c0-9f9c1210833a'
+        },
+        {
+          id: 17,
+          name: 'Data Engineering',
+          issuer: 'AWS',
+          hours: '40h',
+          date: '2026',
+          image: '/certificados/Data-Engineering.png',
+          icon: '/Badges/Data-Engineering.png',
+          desc: 'A conclusão do curso AWS Data Engineering consolidou minha base técnica no ecossistema de dados em nuvem, com foco prático no desenvolvimento de pipelines, ingestão e processamento de dados em larga escala. Aprofundar-me nesses tópicos foi essencial para entender como estruturar arquiteturas de dados robustas, seguras e eficientes, garantindo a integridade, a governança e a disponibilidade das informações para apoiar a tomada de decisões de negócios. Mais do que dominar os serviços analíticos e de armazenamento da plataforma, essa formação proporcionou uma visão ponta a ponta sobre o ciclo de vida dos dados na AWS, preparando-me para projetar fluxos analíticos escaláveis e impulsionar soluções modernas orientadas a dados.',
+          url: 'https://www.credly.com/badges/feff431e-940c-403a-b057-cca0b8332994'
         }
       ]
     },
