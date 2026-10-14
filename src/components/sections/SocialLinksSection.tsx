@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaAws } from 'react-icons/fa';
 import { Dictionary } from '@/i18n/dictionaries';
 import { Section } from '@/components/ui/Section';
 
@@ -15,6 +15,7 @@ export function SocialLinksSection({ dict }: SocialLinksSectionProps) {
   const socialLinks = [
     { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/flaviofox/', color: 'hover:text-blue-500', glow: 'group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]' },
     { icon: FaGithub, label: 'GitHub', href: 'https://github.com/FlavioFoxsaf', color: 'hover:text-white', glow: 'group-hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]' },
+    { icon: FaAws, label: 'AWS Builder Center', href: 'https://builder.aws.com/community/@flaviofox', color: 'hover:text-orange-500', glow: 'group-hover:shadow-[0_0_20px_rgba(249,115,22,0.5)]' },
     { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/foxflavio/', color: 'hover:text-pink-500', glow: 'group-hover:shadow-[0_0_20px_rgba(236,72,153,0.5)]' },
     { icon: FaWhatsapp, label: 'WhatsApp', href: 'https://wa.me/5571987107553', color: 'hover:text-green-500', glow: 'group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]' },
     { icon: Mail, label: 'Email', href: 'mailto:contato@flaviofox.com', color: 'hover:text-red-500', glow: 'group-hover:shadow-[0_0_20px_rgba(239,68,68,0.5)]' },

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useRef } from 'react';
 import { Mail } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaAws } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FFIcon = ({ className }: { className?: string }) => (
@@ -122,6 +122,20 @@ export default function BioPage() {
       iconColor: 'text-blue-500 group-hover:text-blue-400 group-active:text-blue-400'
     },
     {
+      name: 'AWS Builder Center',
+      url: 'https://builder.aws.com/community/@flaviofox',
+      icon: FaAws,
+      color: 'border-white/10 bg-white/5 hover:border-orange-500/50 hover:bg-orange-500/10 hover:shadow-[0_0_15px_rgba(249,115,22,0.15)] active:border-orange-500/50 active:bg-orange-500/10 active:shadow-[0_0_15px_rgba(249,115,22,0.15)]',
+      iconColor: 'text-orange-500 group-hover:text-orange-400 group-active:text-orange-400'
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/FlavioFoxsaf',
+      icon: FaGithub,
+      color: 'border-white/10 bg-white/5 hover:border-gray-400/50 hover:bg-gray-400/10 hover:shadow-[0_0_15px_rgba(156,163,175,0.15)] active:border-gray-400/50 active:bg-gray-400/10 active:shadow-[0_0_15px_rgba(156,163,175,0.15)]',
+      iconColor: 'text-gray-300 group-hover:text-white group-active:text-white'
+    },
+    {
       name: 'Instagram',
       url: 'https://www.instagram.com/foxflavio/',
       icon: FaInstagram,
@@ -134,13 +148,6 @@ export default function BioPage() {
       icon: FaWhatsapp,
       color: 'border-white/10 bg-white/5 hover:border-green-500/50 hover:bg-green-500/10 hover:shadow-[0_0_15px_rgba(34,197,94,0.15)] active:border-green-500/50 active:bg-green-500/10 active:shadow-[0_0_15px_rgba(34,197,94,0.15)]',
       iconColor: 'text-green-500 group-hover:text-green-400 group-active:text-green-400'
-    },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/FlavioFoxsaf',
-      icon: FaGithub,
-      color: 'border-white/10 bg-white/5 hover:border-gray-400/50 hover:bg-gray-400/10 hover:shadow-[0_0_15px_rgba(156,163,175,0.15)] active:border-gray-400/50 active:bg-gray-400/10 active:shadow-[0_0_15px_rgba(156,163,175,0.15)]',
-      iconColor: 'text-gray-300 group-hover:text-white group-active:text-white'
     },
     {
       name: 'E-mail (contato@flaviofox.com)',
