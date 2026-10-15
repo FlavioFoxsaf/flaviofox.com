@@ -13,6 +13,25 @@ const FFIcon = ({ className }: { className?: string }) => (
   </span>
 );
 
+const VerticeIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 48 48" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    className={`shrink-0 ${className || ''}`}
+  >
+    <rect width="48" height="48" rx="12" fill="#24684d" />
+    <path 
+      d="m10 16 12 19 16-24" 
+      fill="none" 
+      stroke="#e4efd9" 
+      strokeWidth="5" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+    />
+  </svg>
+);
+
 function SpotlightCard({ 
   link, 
   index, 
@@ -141,6 +160,14 @@ export default function BioPage() {
       icon: FaInstagram,
       color: 'border-white/10 bg-white/5 hover:border-pink-500/50 hover:bg-pink-500/10 hover:shadow-[0_0_15px_rgba(236,72,153,0.15)] active:border-pink-500/50 active:bg-pink-500/10 active:shadow-[0_0_15px_rgba(236,72,153,0.15)]',
       iconColor: 'text-pink-500 group-hover:text-pink-400 group-active:text-pink-400'
+    },
+    {
+      name: 'Vértice Cash',
+      url: 'https://vertice.cash',
+      icon: VerticeIcon,
+      color: 'border-white/10 bg-white/5 hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:shadow-[0_0_15px_rgba(16,185,129,0.15)] active:border-emerald-500/50 active:bg-emerald-500/10 active:shadow-[0_0_15px_rgba(16,185,129,0.15)]',
+      iconColor: 'text-emerald-500 group-hover:text-emerald-400 group-active:text-emerald-400',
+      hideInFooter: true
     },
     {
       name: 'WhatsApp',
@@ -308,7 +335,7 @@ export default function BioPage() {
           className="text-center"
         >
           <div className="flex items-center justify-center gap-6 mb-8">
-            {links.filter(l => !l.isInternal).map((link, i) => {
+            {links.filter(l => !l.isInternal && !l.hideInFooter).map((link, i) => {
               const Icon = link.icon;
               if (link.isEmail) return null;
               return (
