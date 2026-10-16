@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Flavio Fox" }],
   openGraph: {
     title: "Flavio Fox",
-    description: "Data Science & AI | Systems Analysis & Development",
+    description: "Big Data & AI R&D | AWS User Group Leader | Cloud Data Engineering",
     url: "https://flaviofox.com",
     siteName: "Flavio Fox Portfolio",
     images: [
